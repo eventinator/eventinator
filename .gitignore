@@ -1,0 +1,45 @@
+.DS_Store
+
+# Xcode
+build/
+DerivedData
+output/
+
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+*.hmap
+*.ipa
+*.xcuserstate
+*.xcscmblueprint
+
+# Other Editors
+.idea/
+
+# Logs
+*.log
+junit.xml
+
+# VIM
+*.swp
+*.swo
+*~
+
+# CocoaPods
+#
+Pods/
+
+# Generated code
+profiles/*_Debug.mobileprovision
+
+# SwiftLint
+.protocols_cache.json
+SwiftLint.pkg
