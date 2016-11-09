@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C9AFBC3F1DCD998500C24F2F /* Eventinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9AFBC3F1DCD998500C24F2F /* Lineup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lineup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9AFBC421DCD998500C24F2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9AFBC441DCD998500C24F2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C9AFBC471DCD998500C24F2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		C9AFBC361DCD998500C24F2F = {
 			isa = PBXGroup;
 			children = (
-				C9AFBC411DCD998500C24F2F /* Eventinator */,
+				C9AFBC411DCD998500C24F2F /* Lineup */,
 				C9AFBC401DCD998500C24F2F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,12 +52,12 @@
 		C9AFBC401DCD998500C24F2F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C9AFBC3F1DCD998500C24F2F /* Eventinator.app */,
+				C9AFBC3F1DCD998500C24F2F /* Lineup.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C9AFBC411DCD998500C24F2F /* Eventinator */ = {
+		C9AFBC411DCD998500C24F2F /* Lineup */ = {
 			isa = PBXGroup;
 			children = (
 				FC4F32841DD30FCC003A686E /* View Controllers */,
@@ -68,6 +68,7 @@
 				C9AFBC4B1DCD998500C24F2F /* LaunchScreen.storyboard */,
 				C9AFBC4E1DCD998500C24F2F /* Info.plist */,
 			);
+			name = Lineup;
 			path = Eventinator;
 			sourceTree = "<group>";
 		};
@@ -84,9 +85,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C9AFBC3E1DCD998500C24F2F /* Eventinator */ = {
+		C9AFBC3E1DCD998500C24F2F /* Lineup */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9AFBC511DCD998500C24F2F /* Build configuration list for PBXNativeTarget "Eventinator" */;
+			buildConfigurationList = C9AFBC511DCD998500C24F2F /* Build configuration list for PBXNativeTarget "Lineup" */;
 			buildPhases = (
 				C9AFBC3B1DCD998500C24F2F /* Sources */,
 				C9AFBC3C1DCD998500C24F2F /* Frameworks */,
@@ -96,9 +97,9 @@
 			);
 			dependencies = (
 			);
-			name = Eventinator;
+			name = Lineup;
 			productName = Eventinator;
-			productReference = C9AFBC3F1DCD998500C24F2F /* Eventinator.app */;
+			productReference = C9AFBC3F1DCD998500C24F2F /* Lineup.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -118,7 +119,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C9AFBC3A1DCD998500C24F2F /* Build configuration list for PBXProject "Eventinator" */;
+			buildConfigurationList = C9AFBC3A1DCD998500C24F2F /* Build configuration list for PBXProject "Lineup" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -131,7 +132,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C9AFBC3E1DCD998500C24F2F /* Eventinator */,
+				C9AFBC3E1DCD998500C24F2F /* Lineup */,
 			);
 		};
 /* End PBXProject section */
@@ -306,7 +307,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C9AFBC3A1DCD998500C24F2F /* Build configuration list for PBXProject "Eventinator" */ = {
+		C9AFBC3A1DCD998500C24F2F /* Build configuration list for PBXProject "Lineup" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9AFBC4F1DCD998500C24F2F /* Debug */,
@@ -315,7 +316,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9AFBC511DCD998500C24F2F /* Build configuration list for PBXNativeTarget "Eventinator" */ = {
+		C9AFBC511DCD998500C24F2F /* Build configuration list for PBXNativeTarget "Lineup" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9AFBC521DCD998500C24F2F /* Debug */,
