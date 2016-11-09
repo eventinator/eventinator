@@ -12,6 +12,9 @@
 		C9AFBC481DCD998500C24F2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9AFBC461DCD998500C24F2F /* Main.storyboard */; };
 		C9AFBC4A1DCD998500C24F2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9AFBC491DCD998500C24F2F /* Assets.xcassets */; };
 		C9AFBC4D1DCD998500C24F2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9AFBC4B1DCD998500C24F2F /* LaunchScreen.storyboard */; };
+		FC4F32861DD31001003A686E /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F32851DD31001003A686E /* DiscoverViewController.swift */; };
+		FC4F32881DD31010003A686E /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F32871DD31010003A686E /* SavedViewController.swift */; };
+		FC4F328A1DD3101C003A686E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4F32891DD3101C003A686E /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		C9AFBC491DCD998500C24F2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9AFBC4C1DCD998500C24F2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9AFBC4E1DCD998500C24F2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC4F32851DD31001003A686E /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		FC4F32871DD31010003A686E /* SavedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
+		FC4F32891DD3101C003A686E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 		C9AFBC411DCD998500C24F2F /* Eventinator */ = {
 			isa = PBXGroup;
 			children = (
+				FC4F32841DD30FCC003A686E /* View Controllers */,
 				C9AFBC421DCD998500C24F2F /* AppDelegate.swift */,
 				C9AFBC441DCD998500C24F2F /* ViewController.swift */,
 				C9AFBC461DCD998500C24F2F /* Main.storyboard */,
@@ -62,6 +69,16 @@
 				C9AFBC4E1DCD998500C24F2F /* Info.plist */,
 			);
 			path = Eventinator;
+			sourceTree = "<group>";
+		};
+		FC4F32841DD30FCC003A686E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FC4F32851DD31001003A686E /* DiscoverViewController.swift */,
+				FC4F32871DD31010003A686E /* SavedViewController.swift */,
+				FC4F32891DD3101C003A686E /* ProfileViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +113,7 @@
 				TargetAttributes = {
 					C9AFBC3E1DCD998500C24F2F = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = VR6478DQKS;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -136,7 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC4F32861DD31001003A686E /* DiscoverViewController.swift in Sources */,
 				C9AFBC451DCD998500C24F2F /* ViewController.swift in Sources */,
+				FC4F328A1DD3101C003A686E /* ProfileViewController.swift in Sources */,
+				FC4F32881DD31010003A686E /* SavedViewController.swift in Sources */,
 				C9AFBC431DCD998500C24F2F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,7 +279,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VR6478DQKS;
 				INFOPLIST_FILE = Eventinator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eventinator.xxx.Eventinator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -270,7 +293,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VR6478DQKS;
 				INFOPLIST_FILE = Eventinator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eventinator.xxx.Eventinator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -297,6 +322,7 @@
 				C9AFBC531DCD998500C24F2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
