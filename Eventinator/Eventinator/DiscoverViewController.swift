@@ -16,6 +16,12 @@ class DiscoverViewController: UIViewController {
         let logo = UIImage(named: "lineup-logo.png")
         let imageView = UIImageView(image: logo)
         self.navigationItem.titleView = imageView
+        
+        LineupClient.shared.events(failure: { error in
+            print(error)
+        }) { events in
+            print(events)
+        }
     }
 
     override func didReceiveMemoryWarning() {
