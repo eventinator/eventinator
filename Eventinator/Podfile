@@ -4,6 +4,8 @@ platform :ios, '10.0'
 target 'Lineup' do
   use_frameworks!
 
-  pod 'Alamofire', '~> 4.0'
-  pod 'AlamofireImage', '~> 3.1'
+  pod 'Alamofire'
+  pod 'AlamofireImage'
+  pod 'Parse'
+
 end
