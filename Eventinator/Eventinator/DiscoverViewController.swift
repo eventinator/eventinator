@@ -13,9 +13,7 @@ class DiscoverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let logo = UIImage(named: "lineup-logo.png")
-        let imageView = UIImageView(image: logo)
-        self.navigationItem.titleView = imageView
+        setNavigationBarLogo()
         
         LineupClient.shared.events(failure: { error in
             print(error)
@@ -27,6 +25,12 @@ class DiscoverViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func setNavigationBarLogo() {
+        let logo = UIImage(named: "lineup-logo.png")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
     }
     
 
