@@ -26,6 +26,8 @@
 		FC6D29BD1DD9714100D5673E /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6D29BC1DD9714100D5673E /* ProfileHeaderView.swift */; };
 		FC6D29BF1DD979AA00D5673E /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6D29BE1DD979AA00D5673E /* CategoryCell.swift */; };
 		FC8F51D71DD931F200892229 /* SavedEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F51D61DD931F200892229 /* SavedEventCell.swift */; };
+		FCFF26DB1DD99C540021D934 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF26DA1DD99C540021D934 /* LoginViewController.swift */; };
+		FCFF26DD1DD9A26E0021D934 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF26DC1DD9A26E0021D934 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		FC6D29BC1DD9714100D5673E /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		FC6D29BE1DD979AA00D5673E /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		FC8F51D61DD931F200892229 /* SavedEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedEventCell.swift; sourceTree = "<group>"; };
+		FCFF26DA1DD99C540021D934 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FCFF26DC1DD9A26E0021D934 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,8 @@
 				FC4F32851DD31001003A686E /* DiscoverViewController.swift */,
 				FC4F32871DD31010003A686E /* SavedViewController.swift */,
 				FC4F32891DD3101C003A686E /* ProfileViewController.swift */,
+				FCFF26DA1DD99C540021D934 /* LoginViewController.swift */,
+				FCFF26DC1DD9A26E0021D934 /* MainViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -291,11 +297,13 @@
 				FC4F32861DD31001003A686E /* DiscoverViewController.swift in Sources */,
 				C9F774E81DD77EED0080D242 /* LineupClient.swift in Sources */,
 				FC4F328A1DD3101C003A686E /* ProfileViewController.swift in Sources */,
+				FCFF26DD1DD9A26E0021D934 /* MainViewController.swift in Sources */,
 				C9F774F01DD7AB000080D242 /* User.swift in Sources */,
 				FC4F32881DD31010003A686E /* SavedViewController.swift in Sources */,
 				C9F774F81DD7AD370080D242 /* Source.swift in Sources */,
 				C9AFBC431DCD998500C24F2F /* AppDelegate.swift in Sources */,
 				FC6D29BD1DD9714100D5673E /* ProfileHeaderView.swift in Sources */,
+				FCFF26DB1DD99C540021D934 /* LoginViewController.swift in Sources */,
 				C9F774EE1DD7AAF00080D242 /* Category.swift in Sources */,
 				C9F774F61DD7AB420080D242 /* Location.swift in Sources */,
 				FC6D29BF1DD979AA00D5673E /* CategoryCell.swift in Sources */,
