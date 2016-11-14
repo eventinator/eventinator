@@ -21,11 +21,6 @@ class DiscoverViewController: UIViewController {
             print(events)
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     private func setNavigationBarLogo() {
         let logo = UIImage(named: "lineup-logo.png")

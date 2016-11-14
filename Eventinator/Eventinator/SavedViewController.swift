@@ -33,11 +33,6 @@ class SavedViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.eventsTableView.reloadData()
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count

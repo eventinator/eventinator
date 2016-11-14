@@ -35,7 +35,7 @@ func persistEvent(event: Event) {
     pfEvent["end"] = event.end
     pfEvent["locationId"] = event.locationId
     pfEvent["url"] = event.url?.absoluteString
-    pfEvent["imageUrl"] = event.url?.absoluteString
+    pfEvent["imageUrl"] = event.imageUrl?.absoluteString
     pfEvent["categoryId"] = event.categoryId
     pfEvent["guestCount"] = event.guestCount
     
@@ -80,7 +80,7 @@ func fetchPersistedEvents(user: User) -> [Event] {
                     let querySource = Source(eventId: eventId, sourceId: sourceId, source: sourceText)
                     
                     let id = object.object(forKey: "id") as? String ?? ""
-                    let title  = object.object(forKey: "id") as? String ?? ""
+                    let title  = object.object(forKey: "title") as? String ?? ""
                     let description = object.object(forKey: "description") as? String ?? ""
                     let start = object.object(forKey: "start") as! Date
                     let end = object.object(forKey: "end") as! Date
