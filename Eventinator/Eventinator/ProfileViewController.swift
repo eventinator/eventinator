@@ -13,14 +13,18 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let logo = UIImage(named: "lineup-logo.png")
-        let imageView = UIImageView(image: logo)
-        self.navigationItem.titleView = imageView
+        setNavigationBarLogo()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func setNavigationBarLogo() {
+        let logo = UIImage(named: "lineup-logo.png")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
     }
     
 
