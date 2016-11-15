@@ -69,7 +69,7 @@ struct Event {
         
         query.findObjectsInBackground { (result: [PFObject]?, error: Error?) in
             if let error = error {
-                NSLog("Error while fetch likes for user: \(user?.objectId) error: \(error.localizedDescription)")
+                NSLog("Error while fetch likes for user: \(username!) error: \(error.localizedDescription)")
                 if let failure = failure {
                     failure(error)
                 }

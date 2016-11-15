@@ -24,9 +24,9 @@ struct Category {
         
         pfCategory.saveInBackground(block: { (success: Bool, error: Error?) in
             if success {
-                NSLog("Successfully saved the user: \(user?.objectId) like category: \(category.id)")
+                NSLog("Successfully saved the user: \(username!) like category: \(category.id)")
             } else {
-                NSLog("Error while saving user: \(user?.objectId) like category: \(error?.localizedDescription)")
+                NSLog("Error while saving user: \(username!) like category: \(error?.localizedDescription)")
             }
         })
     }
@@ -41,7 +41,7 @@ struct Category {
         
         query.findObjectsInBackground(block: { (objects: [PFObject]?, error: Error?) in
             if let error = error {
-                NSLog("Error while fetching categories for user: \(user?.objectId) error: \(error.localizedDescription)")
+                NSLog("Error while fetching categories for user: \(username!) error: \(error.localizedDescription)")
                 if let failure = failure {
                     failure(error)
                 }
@@ -50,7 +50,7 @@ struct Category {
                     var categories = [Category]()
                     for object in objects {
                         let id = object.object(forKey: "id") as? String ?? ""
-                        let name  = object.object(forKey: "name") as? String ?? ""
+                        let name = object.object(forKey: "name") as? String ?? ""
                         
                         let fetchedCategory = Category(id: id, name: name)
                         
