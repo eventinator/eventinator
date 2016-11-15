@@ -124,9 +124,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TiQ-Mf-CSj" customClass="DraggableEventView" customModule="Lineup" customModuleProvider="target">
+                                <rect key="frame" x="17" y="81.5" width="340" height="520"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="340" id="DEQ-fr-7sr"/>
+                                    <constraint firstAttribute="width" constant="340" id="Q06-b0-dXY"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="520" id="ir2-DS-RqB"/>
+                                    <constraint firstAttribute="height" constant="520" id="tHO-hx-UBc"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMn-od-WiR" customClass="DraggableEventView" customModule="Lineup" customModuleProvider="target">
                                 <rect key="frame" x="18" y="81.5" width="340" height="520"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="520" id="e9e-eP-u13"/>
                                     <constraint firstAttribute="width" constant="340" id="hqQ-3Y-Sy6"/>
@@ -136,12 +148,15 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="BMn-od-WiR" firstAttribute="centerX" secondItem="1ut-aZ-oVT" secondAttribute="centerX" id="BBM-oz-HVO"/>
+                            <constraint firstItem="TiQ-Mf-CSj" firstAttribute="centerX" secondItem="1ut-aZ-oVT" secondAttribute="centerX" id="GvB-ae-3be"/>
                             <constraint firstItem="BMn-od-WiR" firstAttribute="centerY" secondItem="1ut-aZ-oVT" secondAttribute="centerY" constant="8" id="SFN-LA-FpM"/>
+                            <constraint firstItem="TiQ-Mf-CSj" firstAttribute="centerY" secondItem="1ut-aZ-oVT" secondAttribute="centerY" constant="8" id="qr0-0e-1sb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0yI-uQ-G2k"/>
                     <connections>
-                        <outlet property="draggableEventView" destination="BMn-od-WiR" id="tbc-Ot-HUu"/>
+                        <outlet property="bottomEventView" destination="TiQ-Mf-CSj" id="RKZ-4R-Gq7"/>
+                        <outlet property="topEventView" destination="BMn-od-WiR" id="jiN-S9-NIz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mXQ-nr-yhc" userLabel="First Responder" sceneMemberID="firstResponder"/>
