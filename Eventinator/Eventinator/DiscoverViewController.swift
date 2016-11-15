@@ -27,6 +27,10 @@ class DiscoverViewController: UIViewController {
         let imageView = UIImageView(image: logo)
         self.navigationItem.titleView = imageView
     }
+
+    func markEventAsSavedForUser(event: Event) {
+        Event.persistEvent(event: event)
+    }
     
 
     /*

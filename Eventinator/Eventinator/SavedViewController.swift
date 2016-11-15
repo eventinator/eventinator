@@ -29,13 +29,19 @@ class SavedViewController: UIViewController, UITableViewDataSource, UITableViewD
             print(error)
         }) { events in
             print(events)
-            Event.fetchPersistedEvents(failure: { (error: Error) in
-                print(error)
-            }, success: { (fetchedEvents: [Event]) in
-                self.events = fetchedEvents
-                self.eventsTableView.reloadData()
-            })
+            self.events = events
+            self.eventsTableView.reloadData()
         }
+    }
+    
+    func fetchUserSavedEvents() {
+        Event.fetchPersistedEvents(failure: { (error: Error) in
+            print(error)
+        }, success: { (fetchedEvents: [Event]) in
+            for event in fetchedEvents {
+                print(event)
+            }
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
