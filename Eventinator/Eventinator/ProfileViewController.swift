@@ -17,10 +17,10 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     
     var categories = [Category]()
     var userCategories = [Category]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setNavigationBarLogo()
         
         categoriesCollectionView.delegate = self
@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         categories = getCategories()
         userCategories = getUserCategories()
     }
-
+    
     private func setNavigationBarLogo() {
         let logo = UIImage(named: "lineup-logo.png")
         let imageView = UIImageView(image: logo)
@@ -76,7 +76,19 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         return sectionInsets.left
     }
     
+    func markEventAsSavedForUser(categor: Category) {
+        Category.persistCategory(category: <#T##Category#>)
+    }
     
+    func fetchUserSavedCategories() {
+        Category.fetchPersistedCategories(failure: { (error: Error) in
+            print(error)
+        }, success: { (fetchedCategories: [Category]) in
+            for category in fetchedCategories {
+                print(category)
+            }
+        })
+    }
     
     private func getCategories() -> [Category] {
         return [Category(id: "music", name: "Live Music"),
@@ -95,16 +107,16 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
                 Category(id: "movies", name: "Movies"),
                 Category(id: "fun", name: "Fun & Games")]
     }
-
-
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
