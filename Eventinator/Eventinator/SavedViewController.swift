@@ -13,7 +13,7 @@ class SavedViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var eventsTableView: UITableView!
     
     var events = [Event]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,15 +22,19 @@ class SavedViewController: UIViewController, UITableViewDataSource, UITableViewD
         eventsTableView.estimatedRowHeight = 100
         eventsTableView.rowHeight = UITableViewAutomaticDimension
         eventsTableView.separatorColor = UIColor.clear
-
+        
         setNavigationBarLogo()
         
         LineupClient.shared.events(failure: { error in
             print(error)
         }) { events in
             print(events)
-            self.events = events
-            self.eventsTableView.reloadData()
+            Event.fetchPersistedEvents(failure: { (error: Error) in
+                print(error)
+            }, success: { (fetchedEvents: [Event]) in
+                self.events = fetchedEvents
+                self.eventsTableView.reloadData()
+            })
         }
     }
     
@@ -50,15 +54,15 @@ class SavedViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.navigationItem.titleView = imageView
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
