@@ -26,6 +26,8 @@
 		FC6D29BD1DD9714100D5673E /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6D29BC1DD9714100D5673E /* ProfileHeaderView.swift */; };
 		FC6D29BF1DD979AA00D5673E /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6D29BE1DD979AA00D5673E /* CategoryCell.swift */; };
 		FC8F51D71DD931F200892229 /* SavedEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F51D61DD931F200892229 /* SavedEventCell.swift */; };
+		FCBE09001DDAD05F0086FDDF /* DraggableEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE08FF1DDAD05F0086FDDF /* DraggableEventView.swift */; };
+		FCBE09021DDAD3730086FDDF /* DraggableEventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCBE09011DDAD3730086FDDF /* DraggableEventView.xib */; };
 		FCFF26DB1DD99C540021D934 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF26DA1DD99C540021D934 /* LoginViewController.swift */; };
 		FCFF26DD1DD9A26E0021D934 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF26DC1DD9A26E0021D934 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +56,8 @@
 		FC6D29BC1DD9714100D5673E /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		FC6D29BE1DD979AA00D5673E /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		FC8F51D61DD931F200892229 /* SavedEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedEventCell.swift; sourceTree = "<group>"; };
+		FCBE08FF1DDAD05F0086FDDF /* DraggableEventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableEventView.swift; sourceTree = "<group>"; };
+		FCBE09011DDAD3730086FDDF /* DraggableEventView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DraggableEventView.xib; sourceTree = "<group>"; };
 		FCFF26DA1DD99C540021D934 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FCFF26DC1DD9A26E0021D934 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +118,7 @@
 				FC4F32841DD30FCC003A686E /* View Controllers */,
 				C9AFBC421DCD998500C24F2F /* AppDelegate.swift */,
 				C9AFBC461DCD998500C24F2F /* Main.storyboard */,
+				FCBE09011DDAD3730086FDDF /* DraggableEventView.xib */,
 				C9AFBC491DCD998500C24F2F /* Assets.xcassets */,
 				C9AFBC4B1DCD998500C24F2F /* LaunchScreen.storyboard */,
 				C9AFBC4E1DCD998500C24F2F /* Info.plist */,
@@ -162,6 +167,7 @@
 				FC8F51D61DD931F200892229 /* SavedEventCell.swift */,
 				FC6D29BC1DD9714100D5673E /* ProfileHeaderView.swift */,
 				FC6D29BE1DD979AA00D5673E /* CategoryCell.swift */,
+				FCBE08FF1DDAD05F0086FDDF /* DraggableEventView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -230,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9AFBC4D1DCD998500C24F2F /* LaunchScreen.storyboard in Resources */,
+				FCBE09021DDAD3730086FDDF /* DraggableEventView.xib in Resources */,
 				C9AFBC4A1DCD998500C24F2F /* Assets.xcassets in Resources */,
 				C9AFBC481DCD998500C24F2F /* Main.storyboard in Resources */,
 			);
@@ -305,6 +312,7 @@
 				FC6D29BD1DD9714100D5673E /* ProfileHeaderView.swift in Sources */,
 				FCFF26DB1DD99C540021D934 /* LoginViewController.swift in Sources */,
 				C9F774EE1DD7AAF00080D242 /* Category.swift in Sources */,
+				FCBE09001DDAD05F0086FDDF /* DraggableEventView.swift in Sources */,
 				C9F774F61DD7AB420080D242 /* Location.swift in Sources */,
 				FC6D29BF1DD979AA00D5673E /* CategoryCell.swift in Sources */,
 			);

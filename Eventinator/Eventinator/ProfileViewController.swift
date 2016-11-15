@@ -76,8 +76,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         return sectionInsets.left
     }
     
-    func markEventAsSavedForUser(categor: Category) {
-        Category.persistCategory(category: <#T##Category#>)
+    func markEventAsSavedForUser(category: Category) {
+        Category.persistCategory(category: category)
     }
     
     func fetchUserSavedCategories() {

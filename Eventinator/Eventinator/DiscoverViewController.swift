@@ -10,15 +10,21 @@ import UIKit
 
 class DiscoverViewController: UIViewController {
 
+    @IBOutlet weak var draggableEventView: DraggableEventView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setNavigationBarLogo()
         
+        draggableEventView.isHidden = true
+        
         LineupClient.shared.events(failure: { error in
             print(error)
         }) { events in
             print(events)
+            self.draggableEventView.event = events[0]
+            self.draggableEventView.isHidden = false
         }
     }
     
@@ -26,6 +32,7 @@ class DiscoverViewController: UIViewController {
         let logo = UIImage(named: "lineup-logo.png")
         let imageView = UIImageView(image: logo)
         self.navigationItem.titleView = imageView
+        draggableEventView.layer.cornerRadius = 5
     }
 
     func markEventAsSavedForUser(event: Event) {

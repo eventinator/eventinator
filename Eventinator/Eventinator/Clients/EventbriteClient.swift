@@ -66,7 +66,7 @@ extension Event {
         return Event(
             id: sourceId,
             title: json.value(forKeyPath: "name.text") as? String ?? "",
-            description: json.value(forKeyPath: "description.text") as? String ?? "",
+            theDescription: json.value(forKeyPath: "description.text") as? String ?? "",
             start: dateFormatter.date(from: json.value(forKeyPath: "start.utc") as! String),
             end: dateFormatter.date(from: json.value(forKeyPath: "end.utc") as! String),
             locationId: json["venue_id"] as? String,

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DraggableEventView" customModule="Lineup" customModuleProvider="target">
+            <connections>
+                <outlet property="costLabel" destination="lNv-4K-mtr" id="6Dd-uT-2lx"/>
+                <outlet property="dateLabel" destination="IMe-Qk-GrM" id="hQP-uP-fBa"/>
+                <outlet property="descriptionLabel" destination="STa-Yb-caw" id="Xbs-jU-A12"/>
+                <outlet property="eventImageView" destination="re6-Kk-rzv" id="3dO-4m-i6K"/>
+                <outlet property="locationLabel" destination="38d-kd-aGh" id="ssG-Ld-UPy"/>
+                <outlet property="titleLabel" destination="X1h-2R-bBE" id="IYG-W0-kp8"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="511"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7h-0l-MP1">
+                    <rect key="frame" x="0.0" y="237" width="375" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="068-N0-ApH"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1" id="Gfr-Dz-mYr"/>
+                        <constraint firstAttribute="height" constant="1" id="Hq8-xZ-TfQ"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat Nov 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMe-Qk-GrM">
+                    <rect key="frame" x="16" y="208" width="75" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FREE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNv-4K-mtr">
+                    <rect key="frame" x="319" y="208" width="40" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="2016 Dia de los Muertos Celebration: Parade" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1h-2R-bBE">
+                    <rect key="frame" x="16" y="246" width="339" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="50 Canal St, San Rafael, CA" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38d-kd-aGh">
+                    <rect key="frame" x="16" y="277" width="188.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Celebrate life at the 28th annual Dia de los Muertos celebration..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STa-Yb-caw">
+                    <rect key="frame" x="16" y="301" width="295" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineup-logo" translatesAutoresizingMaskIntoConstraints="NO" id="re6-Kk-rzv">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="6eL-gZ-iTK"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="00w-BM-QI4">
+                    <rect key="frame" x="0.0" y="200" width="375" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="TWb-Ha-6wD"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HxP-fq-wEG">
+                    <rect key="frame" x="302" y="200" width="1" height="37"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="x1b-ad-Q54"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="IMe-Qk-GrM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="01a-iV-bOZ"/>
+                <constraint firstItem="i7h-0l-MP1" firstAttribute="top" secondItem="HxP-fq-wEG" secondAttribute="bottom" id="0p5-dN-mbO"/>
+                <constraint firstItem="X1h-2R-bBE" firstAttribute="top" secondItem="i7h-0l-MP1" secondAttribute="bottom" constant="8" id="1et-RQ-dXO"/>
+                <constraint firstItem="STa-Yb-caw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="59i-zJ-32a"/>
+                <constraint firstItem="STa-Yb-caw" firstAttribute="top" secondItem="38d-kd-aGh" secondAttribute="bottom" constant="6" id="Fx1-kW-Ivy"/>
+                <constraint firstItem="X1h-2R-bBE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="H2x-7e-k6m"/>
+                <constraint firstItem="00w-BM-QI4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="H7V-07-xjK"/>
+                <constraint firstItem="lNv-4K-mtr" firstAttribute="top" secondItem="re6-Kk-rzv" secondAttribute="bottom" constant="8" id="IiA-L0-BDi"/>
+                <constraint firstAttribute="trailing" secondItem="lNv-4K-mtr" secondAttribute="trailing" constant="16" id="MdF-ic-dl9"/>
+                <constraint firstItem="HxP-fq-wEG" firstAttribute="top" secondItem="re6-Kk-rzv" secondAttribute="bottom" id="Pr0-kx-Ovw"/>
+                <constraint firstItem="HxP-fq-wEG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IMe-Qk-GrM" secondAttribute="trailing" constant="16" id="Qw8-Vv-gNd"/>
+                <constraint firstAttribute="trailing" secondItem="00w-BM-QI4" secondAttribute="trailing" id="VOq-JH-gQp"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="38d-kd-aGh" secondAttribute="trailing" constant="20" id="VqH-Y2-SZU"/>
+                <constraint firstItem="00w-BM-QI4" firstAttribute="top" secondItem="re6-Kk-rzv" secondAttribute="bottom" id="XGn-wq-DNN"/>
+                <constraint firstItem="i7h-0l-MP1" firstAttribute="top" secondItem="lNv-4K-mtr" secondAttribute="bottom" constant="8" id="Zhr-Oq-4h3"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="STa-Yb-caw" secondAttribute="bottom" constant="20" id="am9-ff-Vs7"/>
+                <constraint firstItem="i7h-0l-MP1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cXg-24-92o"/>
+                <constraint firstItem="re6-Kk-rzv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gl3-Bd-QFU"/>
+                <constraint firstItem="re6-Kk-rzv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="h0J-88-qcR"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="X1h-2R-bBE" secondAttribute="trailing" constant="20" id="i4J-8p-Hqn"/>
+                <constraint firstAttribute="trailing" secondItem="re6-Kk-rzv" secondAttribute="trailing" id="k7a-0P-Hjh"/>
+                <constraint firstItem="38d-kd-aGh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="lZg-pZ-60E"/>
+                <constraint firstItem="IMe-Qk-GrM" firstAttribute="top" secondItem="re6-Kk-rzv" secondAttribute="bottom" constant="8" id="o6L-pl-x2S"/>
+                <constraint firstItem="lNv-4K-mtr" firstAttribute="leading" secondItem="HxP-fq-wEG" secondAttribute="trailing" constant="16" id="qgr-ot-P3D"/>
+                <constraint firstItem="38d-kd-aGh" firstAttribute="top" secondItem="X1h-2R-bBE" secondAttribute="bottom" constant="10" id="tqu-2T-Wil"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="STa-Yb-caw" secondAttribute="trailing" constant="20" id="uRx-tP-IFS"/>
+                <constraint firstAttribute="trailing" secondItem="i7h-0l-MP1" secondAttribute="trailing" id="urb-NS-hnC"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33.5" y="-24.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="lineup-logo" width="87" height="27"/>
+    </resources>
+</document>

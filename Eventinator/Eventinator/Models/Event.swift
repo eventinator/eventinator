@@ -12,7 +12,7 @@ import Parse
 struct Event {
     let id: String
     let title: String
-    let description: String
+    let theDescription: String
     let start: Date?
     let end: Date?
     let locationId: String?
@@ -30,7 +30,7 @@ struct Event {
         pfEvent["username"] = username
         pfEvent["id"] = event.id
         pfEvent["title"] = event.title
-        pfEvent["description"] = event.description
+        pfEvent["description"] = event.theDescription
         pfEvent["start"] = event.start
         pfEvent["end"] = event.end
         pfEvent["locationId"] = event.locationId
@@ -95,7 +95,7 @@ struct Event {
                         let categoryId  = object.object(forKey: "categoryId") as? String ?? ""
                         let guestCount  = object.object(forKey: "guestCount") as? UInt ?? 0
                         
-                        let fetchedEvent = Event(id: id, title: title, description: description, start: start, end: end, locationId: locationId, url: url, imageUrl: imageUrl, categoryId: categoryId, guestCount: guestCount, source: querySource)
+                        let fetchedEvent = Event(id: id, title: title, theDescription: description, start: start, end: end, locationId: locationId, url: url, imageUrl: imageUrl, categoryId: categoryId, guestCount: guestCount, source: querySource)
                         
                         events.append(fetchedEvent)
                     }
