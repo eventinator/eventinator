@@ -98,9 +98,8 @@ struct Event {
                         let fetchedEvent = Event(id: id, title: title, description: description, start: start, end: end, locationId: locationId, url: url, imageUrl: imageUrl, categoryId: categoryId, guestCount: guestCount, source: querySource)
                         
                         events.append(fetchedEvent)
-                        success(events)
                     }
-                    
+                    success(events)
                 }
             }
         }
