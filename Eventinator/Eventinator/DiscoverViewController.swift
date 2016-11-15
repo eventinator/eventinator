@@ -24,7 +24,7 @@ class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
         topEventView.isDraggable = true
         topEventView.isHidden = true
         bottomEventView.delegate = self
-//        bottomEventView.isHidden = true
+        bottomEventView.isHidden = true
         
         LineupClient.shared.events(failure: { error in
             print(error)
@@ -44,21 +44,21 @@ class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
     
     func draggableEventView(swiped direction: SwipeDirection) {
         events.remove(at: 0)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300), execute: {
             if self.events.count > 0 {
                 self.topEventView.event = self.events[0]
                 print("set new topEventView")
                 print("topEventView.isHidden: \(self.topEventView.isHidden)")
             } else {
-//                self.topEventView.isHidden = true
-//                self.bottomEventView.isHidden = true
+                self.topEventView.isHidden = true
+                self.bottomEventView.isHidden = true
             }
             if self.events.count > 1 {
                 self.bottomEventView.event = self.events[1]
                 print("set new bottomEventView")
                 print("bottomEventView: \(self.bottomEventView.isHidden)")
             } else {
-//                self.bottomEventView.isHidden = true
+                self.bottomEventView.isHidden = true
             }
         })
     }
