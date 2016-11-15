@@ -43,6 +43,14 @@ The app will feature the use of real-time location, maps, notifications, and a b
      - Optional: User can skip registration (low)
      - Optional: Behavior learning to better surface even more relevant events (high)
 
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='https://raw.githubusercontent.com/eventinator/eventinator/master/lineup-walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
 ## License
 
     Copyright 2016 eventinator
