@@ -378,7 +378,7 @@
                                                 </imageView>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="dDJ-2w-Hl4" firstAttribute="centerY" secondItem="2pK-QL-Fah" secondAttribute="centerY" constant="18" id="8jS-6i-1zR"/>
                                             <constraint firstItem="dDJ-2w-Hl4" firstAttribute="centerX" secondItem="2pK-QL-Fah" secondAttribute="centerX" id="Hv9-5g-XB5"/>

@@ -25,8 +25,12 @@ class CategoryCell: UICollectionViewCell {
                 addImageView.isHidden = true
                 backgroundColor = UIColor(red: CGFloat(240/255.0), green: CGFloat(89/255.0), blue: CGFloat(42/255.0), alpha: CGFloat(0.75))
                 categoryNameLabel.textColor = UIColor.white
+            } else {
+                addImageView.isHidden = false
+                backgroundColor = UIColor(red: CGFloat(238/255.0), green: CGFloat(238/255.0), blue: CGFloat(238/255.0), alpha: CGFloat(0.75))
+                categoryNameLabel.textColor = UIColor.black
                 addImageView.image = addImageView.image!.withRenderingMode(.alwaysTemplate)
-                addImageView.tintColor = UIColor.white
+                addImageView.tintColor = UIColor.black
             }
         }
     }
@@ -34,6 +38,15 @@ class CategoryCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         isUserCategory = false
         super.init(coder: aDecoder)
+        
+        let panGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        addGestureRecognizer(panGesture)
     }
+    
+    func onTap(sender: UITapGestureRecognizer) {
+        isUserCategory = !isUserCategory
+    }
+    
+    
     
 }
