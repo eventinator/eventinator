@@ -21,7 +21,8 @@ protocol DraggableEventViewDelegate {
 @IBDesignable class DraggableEventView: UIView {
     
     var view: UIView!
-    var localViewCenter: CGPoint!
+    var parentView: UIView!
+    var parentViewCenter: CGPoint!
     var delegate: DraggableEventViewDelegate!
     var panGesture: UIPanGestureRecognizer!
     
@@ -60,7 +61,7 @@ protocol DraggableEventViewDelegate {
             descriptionLabel.text = event.theDescription
             
             // Reset view to the center
-            self.view.center = self.localViewCenter
+            self.parentView.center = self.parentViewCenter
             self.view.transform = CGAffineTransform.identity
         }
     }
@@ -75,6 +76,13 @@ protocol DraggableEventViewDelegate {
         initSubviews()
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        parentViewCenter = view.center
+        isDraggable = false
+    }
+    
     private func initSubviews() {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "DraggableEventView", bundle: bundle)
@@ -84,9 +92,6 @@ protocol DraggableEventViewDelegate {
         addSubview(view)
         view.layer.cornerRadius = 5
         eventImageView.layer.cornerRadius = 5
-        
-        localViewCenter = view.center
-        isDraggable = false
     }
     
     func didPan(sender: UIPanGestureRecognizer) {
@@ -96,7 +101,7 @@ protocol DraggableEventViewDelegate {
         //        let rotation = sender.rotation(in: localView)
         
         if sender.state == .began {
-            localViewCenter = view.center
+            parentViewCenter = parentView.center
         } else if sender.state == .changed {
             
             // Translate the parent card view
@@ -127,20 +132,28 @@ protocol DraggableEventViewDelegate {
             
             //localView.transform = CGAffineTransform(rotationAngle: rad)
             
-            view.center = CGPoint(x: localViewCenter.x + translation.x, y: localViewCenter.y + translation.y)
+            parentView.center = CGPoint(x: parentViewCenter.x + translation.x, y: parentViewCenter.y + translation.y)
         } else if sender.state == .ended {
-            UIView.animate(withDuration: 0.200) {
-                if translation.x > 100 {
-                    self.view.center.x = 1000
-                    self.delegate.draggableEventView(swiped: SwipeDirection.right)
-                } else if translation.x < -100 {
-                    self.view.center.x = -1000
-                    self.delegate.draggableEventView(swiped: SwipeDirection.left)
-                } else {
-                    self.view.center = self.localViewCenter
-                    self.view.transform = CGAffineTransform.identity
-                }
-            }
+            let didSwipeRight = translation.x > 100
+            let didSwipeLeft = translation.x < -100
+            UIView.animate(withDuration: 0.2,
+                animations: {
+                    if didSwipeRight {
+                        self.parentView.center.x = 1000
+                    } else if didSwipeLeft {
+                        self.parentView.center.x = -1000
+                    } else {
+                        self.parentView.center = self.parentViewCenter
+                        self.view.transform = CGAffineTransform.identity
+                    }
+            },
+                completion: { (isFinished) in
+                    if didSwipeRight {
+                        self.delegate.draggableEventView(swiped: SwipeDirection.right)
+                    } else if didSwipeLeft {
+                        self.delegate.draggableEventView(swiped: SwipeDirection.left)
+                    }
+            })
         }
     }
 
