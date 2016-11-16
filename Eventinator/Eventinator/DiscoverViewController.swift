@@ -44,7 +44,7 @@ class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
     
     func draggableEventView(swiped direction: SwipeDirection) {
         events.remove(at: 0)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: {
             if self.events.count > 0 {
                 self.topEventView.event = self.events[0]
                 print("set new topEventView")

@@ -126,7 +126,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TiQ-Mf-CSj" customClass="DraggableEventView" customModule="Lineup" customModuleProvider="target">
                                 <rect key="frame" x="17" y="81.5" width="340" height="520"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="340" id="DEQ-fr-7sr"/>
@@ -137,7 +137,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMn-od-WiR" customClass="DraggableEventView" customModule="Lineup" customModuleProvider="target">
                                 <rect key="frame" x="18" y="81.5" width="340" height="520"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="520" id="e9e-eP-u13"/>

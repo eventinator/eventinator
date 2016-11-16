@@ -99,7 +99,8 @@ protocol DraggableEventViewDelegate {
             localViewCenter = view.center
         } else if sender.state == .changed {
             
-            
+            // Translate the parent card view
+            // Rotate the inner content view
             let currentRadians = atan2f(Float(view.transform.b), Float(view.transform.a))
             let currentDegrees = currentRadians.radiansToDegrees
             if translation.x > 0 {
