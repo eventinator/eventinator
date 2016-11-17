@@ -525,12 +525,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHG-fv-4gP">
-                                <rect key="frame" x="0.0" y="67" width="375" height="542"/>
+                                <rect key="frame" x="0.0" y="83" width="375" height="526"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.94117647059999998" green="0.34901960780000002" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="lineup-logo" translatesAutoresizingMaskIntoConstraints="NO" id="FCM-UY-chY">
-                                <rect key="frame" x="144" y="20" width="87" height="27"/>
+                                <rect key="frame" x="144" y="36" width="87" height="27"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnk-Ux-Vyb">
                                 <rect key="frame" x="172" y="617" width="30" height="30"/>
@@ -548,7 +548,7 @@
                             <constraint firstItem="iHG-fv-4gP" firstAttribute="top" secondItem="FCM-UY-chY" secondAttribute="bottom" constant="20" id="FgB-Q5-dJx"/>
                             <constraint firstItem="FCM-UY-chY" firstAttribute="centerX" secondItem="4UT-vS-RHf" secondAttribute="centerX" id="JBx-Ei-vSv"/>
                             <constraint firstAttribute="trailing" secondItem="iHG-fv-4gP" secondAttribute="trailing" id="VW4-1f-yXJ"/>
-                            <constraint firstItem="FCM-UY-chY" firstAttribute="top" secondItem="WGM-e0-9Wf" secondAttribute="bottom" id="bhm-g2-h6H"/>
+                            <constraint firstItem="FCM-UY-chY" firstAttribute="top" secondItem="WGM-e0-9Wf" secondAttribute="bottom" constant="16" id="bhm-g2-h6H"/>
                             <constraint firstItem="iHG-fv-4gP" firstAttribute="leading" secondItem="4UT-vS-RHf" secondAttribute="leading" id="nSS-Ey-nta"/>
                             <constraint firstItem="mnk-Ux-Vyb" firstAttribute="top" secondItem="iHG-fv-4gP" secondAttribute="bottom" constant="8" id="sFH-Yh-AlQ"/>
                             <constraint firstItem="ZuZ-G3-2g2" firstAttribute="top" secondItem="mnk-Ux-Vyb" secondAttribute="bottom" constant="20" id="sIN-6L-SAU"/>
