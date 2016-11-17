@@ -21,7 +21,7 @@ class OnboardingRootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        pageLabels = ["Discover exciting events happening around you", "Swipe right to save an event and left to pass", "Saved events show up on you calendar"]
+        pageLabels = ["Discover exciting events happening around you", "Swipe right to save an event and swipe left to pass", "Saved events show up on you calendar"]
         pageImages = [UIImage.init(named: "ic_discover")!, UIImage.init(named: "ic_profile")!, UIImage.init(named: "ic_star")!]
         
         pageViewController = storyboard?.instantiateViewController(withIdentifier: "OnboardingPageViewController") as? OnboardingPageViewController
