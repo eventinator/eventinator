@@ -28,6 +28,9 @@
 		FC8F51D71DD931F200892229 /* SavedEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F51D61DD931F200892229 /* SavedEventCell.swift */; };
 		FCBE09001DDAD05F0086FDDF /* DraggableEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE08FF1DDAD05F0086FDDF /* DraggableEventView.swift */; };
 		FCBE09021DDAD3730086FDDF /* DraggableEventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCBE09011DDAD3730086FDDF /* DraggableEventView.xib */; };
+		FCBE09271DDD7F170086FDDF /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE09261DDD7F170086FDDF /* OnboardingPageViewController.swift */; };
+		FCBE09291DDD7F450086FDDF /* OnboardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE09281DDD7F450086FDDF /* OnboardingContentViewController.swift */; };
+		FCBE092B1DDD80600086FDDF /* OnboardingRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE092A1DDD80600086FDDF /* OnboardingRootViewController.swift */; };
 		FCFF26DB1DD99C540021D934 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF26DA1DD99C540021D934 /* LoginViewController.swift */; };
 		FCFF26DD1DD9A26E0021D934 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFF26DC1DD9A26E0021D934 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,9 @@
 		FC8F51D61DD931F200892229 /* SavedEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedEventCell.swift; sourceTree = "<group>"; };
 		FCBE08FF1DDAD05F0086FDDF /* DraggableEventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableEventView.swift; sourceTree = "<group>"; };
 		FCBE09011DDAD3730086FDDF /* DraggableEventView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DraggableEventView.xib; sourceTree = "<group>"; };
+		FCBE09261DDD7F170086FDDF /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		FCBE09281DDD7F450086FDDF /* OnboardingContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingContentViewController.swift; sourceTree = "<group>"; };
+		FCBE092A1DDD80600086FDDF /* OnboardingRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingRootViewController.swift; sourceTree = "<group>"; };
 		FCFF26DA1DD99C540021D934 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FCFF26DC1DD9A26E0021D934 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +158,7 @@
 		FC4F32841DD30FCC003A686E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FCBE09251DDD7EFC0086FDDF /* Onboarding */,
 				FC4F32851DD31001003A686E /* DiscoverViewController.swift */,
 				FC4F32871DD31010003A686E /* SavedViewController.swift */,
 				FC4F32891DD3101C003A686E /* ProfileViewController.swift */,
@@ -170,6 +177,16 @@
 				FCBE08FF1DDAD05F0086FDDF /* DraggableEventView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		FCBE09251DDD7EFC0086FDDF /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				FCBE09261DDD7F170086FDDF /* OnboardingPageViewController.swift */,
+				FCBE09281DDD7F450086FDDF /* OnboardingContentViewController.swift */,
+				FCBE092A1DDD80600086FDDF /* OnboardingRootViewController.swift */,
+			);
+			name = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,10 +315,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC8F51D71DD931F200892229 /* SavedEventCell.swift in Sources */,
+				FCBE09271DDD7F170086FDDF /* OnboardingPageViewController.swift in Sources */,
 				C9F774F41DD7AB330080D242 /* Ticket.swift in Sources */,
 				C9F774EC1DD77F1C0080D242 /* Event.swift in Sources */,
 				C9F774EA1DD77F020080D242 /* EventbriteClient.swift in Sources */,
+				FCBE09291DDD7F450086FDDF /* OnboardingContentViewController.swift in Sources */,
 				FC4F32861DD31001003A686E /* DiscoverViewController.swift in Sources */,
+				FCBE092B1DDD80600086FDDF /* OnboardingRootViewController.swift in Sources */,
 				C9F774E81DD77EED0080D242 /* LineupClient.swift in Sources */,
 				FC4F328A1DD3101C003A686E /* ProfileViewController.swift in Sources */,
 				FCFF26DD1DD9A26E0021D934 /* MainViewController.swift in Sources */,
