@@ -39,8 +39,8 @@ class CategoryCell: UICollectionViewCell {
         isUserCategory = false
         super.init(coder: aDecoder)
         
-        let panGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
-        addGestureRecognizer(panGesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        addGestureRecognizer(tapGesture)
     }
     
     func onTap(sender: UITapGestureRecognizer) {
