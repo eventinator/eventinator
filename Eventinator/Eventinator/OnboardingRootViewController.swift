@@ -13,98 +13,75 @@ class OnboardingRootViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var skipButton: UIButton!
     
-    var pageLabels: [String]?
-    var pageImages: [UIImage]?
-    
-    var pageViewController: OnboardingPageViewController?
+    var pages: [UIViewController] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        pageLabels = ["Discover exciting events happening around you", "Swipe right to save an event and swipe left to pass", "Saved events show up on you calendar"]
-        pageImages = [UIImage.init(named: "ic_discover")!, UIImage.init(named: "ic_profile")!, UIImage.init(named: "ic_star")!]
         
-        pageViewController = storyboard?.instantiateViewController(withIdentifier: "OnboardingPageViewController") as? OnboardingPageViewController
-        pageViewController?.dataSource = self
+        pages = [
+            createPage("Discover exciting events happening around you", UIImage.init(named: "ic_discover")!),
+            createPage("Swipe right to save an event and swipe left to pass", UIImage.init(named: "ic_profile")!),
+            createPage("Saved events show up on you calendar", UIImage.init(named: "ic_star")!)
+        ]
+        let pageViewController = storyboard?.instantiateViewController(withIdentifier: "OnboardingPageViewController") as! OnboardingPageViewController
+        pageViewController.dataSource = self
+        pageViewController.view.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height - 30)
+        pageViewController.setViewControllers([pages.first!], direction: .forward, animated: false, completion: nil)
         
-        let startingViewController = getContentViewController(at: 0)!
-        let viewControllers = [startingViewController]
-        pageViewController?.setViewControllers(viewControllers, direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
-        pageViewController?.view.frame = CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height - 30)
-        
-        addChildViewController(pageViewController!)
-        contentView.addSubview((pageViewController?.view)!)
-        pageViewController?.didMove(toParentViewController: self)
+        addChildViewController(pageViewController)
+        contentView.addSubview((pageViewController.view)!)
+        pageViewController.didMove(toParentViewController: self)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func onSkipClicked(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         self.present(mainViewController, animated: true, completion: nil)
     }
     
-    func getContentViewController(at index: Int) -> OnboardingContentViewController? {
-        if pageLabels?.count == 0 || index >= (pageLabels?.count)! {
-            return nil
-        }
-        
-        if index == (pageLabels?.count)! - 1 {
-            skipButton.setTitle("Continue", for: UIControlState.normal)
-        } else {
-            skipButton.setTitle("Skip", for: UIControlState.normal)
-        }
-        
+    func skipTitle(_ title: String) {
+        skipButton.setTitle(title, for: .normal)
+    }
+    
+    func createPage(_ label: String, _ image: UIImage) -> UIViewController {
         let contentViewController = storyboard?.instantiateViewController(withIdentifier: "OnboardingContentViewController") as! OnboardingContentViewController
-        contentViewController.pageIndex = index
-        contentViewController.pageLabelText = pageLabels![index]
-        contentViewController.pageImage = pageImages![index]
+        contentViewController.pageLabelText = label
+        contentViewController.pageImage = image
         return contentViewController
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 extension OnboardingRootViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let index = (viewController as! OnboardingContentViewController).pageIndex!
-        
-        if index == 0 || index == NSNotFound {
+        guard let currentIndex = pages.index(of: viewController) else {
             return nil
         }
-        return getContentViewController(at: index - 1)
+        let previousIndex = currentIndex - 1
+        guard previousIndex >= 0 else {
+            return nil
+        }
+        
+        skipTitle("Skip")
+        return pages[previousIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        var index = (viewController as! OnboardingContentViewController).pageIndex!
-        
-        if index == NSNotFound {
+        guard let currentIndex = pages.index(of: viewController) else {
+            return nil
+        }
+        let nextIndex = currentIndex + 1
+        guard nextIndex < pages.count else {
+            skipTitle("Continue")
             return nil
         }
         
-        index += 1
-        if index == pageLabels?.count {
-            return nil
-        }
-        return getContentViewController(at: index)
+        return pages[nextIndex]
     }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return (pageLabels?.count)!
+        return pages.count
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
