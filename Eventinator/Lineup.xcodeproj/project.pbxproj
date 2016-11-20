@@ -11,6 +11,8 @@
 		C9ACBFEE1DE2443F009D042F /* ParseLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBFED1DE2443F009D042F /* ParseLogInViewController.swift */; };
 		C9ACBFF01DE25211009D042F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBFEF1DE25211009D042F /* Colors.swift */; };
 		C9ACBFF21DE25883009D042F /* ParseSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBFF11DE25883009D042F /* ParseSignUpViewController.swift */; };
+		C9ACBFF51DE25B8B009D042F /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBFF41DE25B8B009D042F /* NavigationManager.swift */; };
+		C9ACBFF71DE25FA0009D042F /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBFF61DE25FA0009D042F /* AccountManager.swift */; };
 		C9AFBC431DCD998500C24F2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AFBC421DCD998500C24F2F /* AppDelegate.swift */; };
 		C9AFBC481DCD998500C24F2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9AFBC461DCD998500C24F2F /* Main.storyboard */; };
 		C9AFBC4A1DCD998500C24F2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9AFBC491DCD998500C24F2F /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		C9ACBFED1DE2443F009D042F /* ParseLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLogInViewController.swift; sourceTree = "<group>"; };
 		C9ACBFEF1DE25211009D042F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C9ACBFF11DE25883009D042F /* ParseSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseSignUpViewController.swift; sourceTree = "<group>"; };
+		C9ACBFF41DE25B8B009D042F /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationManager.swift; path = Managers/NavigationManager.swift; sourceTree = "<group>"; };
+		C9ACBFF61DE25FA0009D042F /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManager.swift; path = Managers/AccountManager.swift; sourceTree = "<group>"; };
 		C9AFBC3F1DCD998500C24F2F /* Lineup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lineup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9AFBC421DCD998500C24F2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9AFBC471DCD998500C24F2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +117,15 @@
 			name = "Login+Signup";
 			sourceTree = "<group>";
 		};
+		C9ACBFF31DE25B6B009D042F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C9ACBFF41DE25B8B009D042F /* NavigationManager.swift */,
+				C9ACBFF61DE25FA0009D042F /* AccountManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		C9AFBC361DCD998500C24F2F = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				FC8F51D51DD931D700892229 /* Views */,
+				C9ACBFF31DE25B6B009D042F /* Managers */,
 				C9F774E61DD77ECB0080D242 /* Clients */,
 				C9F774E51DD77EBE0080D242 /* Models */,
 				FC4F32841DD30FCC003A686E /* View Controllers */,
@@ -335,6 +349,7 @@
 				FCBE09271DDD7F170086FDDF /* OnboardingPageViewController.swift in Sources */,
 				C9ACBFEE1DE2443F009D042F /* ParseLogInViewController.swift in Sources */,
 				C9F774F41DD7AB330080D242 /* Ticket.swift in Sources */,
+				C9ACBFF51DE25B8B009D042F /* NavigationManager.swift in Sources */,
 				C9F774EC1DD77F1C0080D242 /* Event.swift in Sources */,
 				C9F774EA1DD77F020080D242 /* EventbriteClient.swift in Sources */,
 				FCBE09291DDD7F450086FDDF /* OnboardingContentViewController.swift in Sources */,
@@ -351,6 +366,7 @@
 				FC6D29BD1DD9714100D5673E /* ProfileHeaderView.swift in Sources */,
 				C9ACBFF21DE25883009D042F /* ParseSignUpViewController.swift in Sources */,
 				FCFF26DB1DD99C540021D934 /* LoginViewController.swift in Sources */,
+				C9ACBFF71DE25FA0009D042F /* AccountManager.swift in Sources */,
 				C9F774EE1DD7AAF00080D242 /* Category.swift in Sources */,
 				FCBE09001DDAD05F0086FDDF /* DraggableEventView.swift in Sources */,
 				C9F774F61DD7AB420080D242 /* Location.swift in Sources */,

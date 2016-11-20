@@ -23,8 +23,6 @@ class ParseSignUpViewController : PFSignUpViewController, PFSignUpViewController
     
     
     func signUpViewController(_ signUpController: PFSignUpViewController, didSignUp user: PFUser) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
-        self.present(mainViewController, animated: true, completion: nil)
+        NavigationManager.shared.toMain(from: self)
     }
 }

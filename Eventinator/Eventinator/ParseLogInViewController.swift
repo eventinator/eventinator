@@ -24,8 +24,6 @@ class ParseLoginViewController : PFLogInViewController, PFLogInViewControllerDel
     }
     
     func log(_ logInController: PFLogInViewController, didLogIn user: PFUser) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
-        self.present(mainViewController, animated: true, completion: nil)
+        NavigationManager.shared.toMain(from: self)
     }
 }
