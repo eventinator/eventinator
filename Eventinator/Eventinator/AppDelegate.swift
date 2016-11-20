@@ -30,8 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set the styling for page control dots in onboarding
         let pageControl = UIPageControl.appearance()
         pageControl.pageIndicatorTintColor = UIColor.lightGray
-        pageControl.currentPageIndicatorTintColor = UIColor.orange
-        pageControl.backgroundColor = UIColor.white
+        pageControl.currentPageIndicatorTintColor = Colors.branding
+        pageControl.backgroundColor = Colors.background
         
         return true
     }

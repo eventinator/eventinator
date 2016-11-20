@@ -34,9 +34,8 @@ class OnboardingRootViewController: UIViewController {
     }
 
     @IBAction func onSkipClicked(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-        self.present(mainViewController, animated: true, completion: nil)
+        let login = ParseLoginViewController()
+        self.present(login, animated: true, completion: nil)
     }
     
     func skipTitle(_ title: String) {

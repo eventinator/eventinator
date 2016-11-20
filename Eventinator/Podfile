@@ -7,6 +7,7 @@ target 'Lineup' do
   pod 'Alamofire'
   pod 'AlamofireImage'
   pod 'Parse'
+  pod 'ParseUI'
   pod 'AFNetworking'
 
 end

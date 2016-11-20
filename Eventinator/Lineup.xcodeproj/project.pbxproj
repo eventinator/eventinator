@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4FCE98F6D55902D547EF51AD /* Pods_Lineup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9E12DB1AC2EFFD234CC00F /* Pods_Lineup.framework */; };
+		C9ACBFEE1DE2443F009D042F /* ParseLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBFED1DE2443F009D042F /* ParseLogInViewController.swift */; };
+		C9ACBFF01DE25211009D042F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBFEF1DE25211009D042F /* Colors.swift */; };
+		C9ACBFF21DE25883009D042F /* ParseSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBFF11DE25883009D042F /* ParseSignUpViewController.swift */; };
 		C9AFBC431DCD998500C24F2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AFBC421DCD998500C24F2F /* AppDelegate.swift */; };
 		C9AFBC481DCD998500C24F2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9AFBC461DCD998500C24F2F /* Main.storyboard */; };
 		C9AFBC4A1DCD998500C24F2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9AFBC491DCD998500C24F2F /* Assets.xcassets */; };
@@ -38,6 +41,9 @@
 /* Begin PBXFileReference section */
 		4F9E12DB1AC2EFFD234CC00F /* Pods_Lineup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lineup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5102524B05C2AED03C18D283 /* Pods-Lineup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lineup.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lineup/Pods-Lineup.release.xcconfig"; sourceTree = "<group>"; };
+		C9ACBFED1DE2443F009D042F /* ParseLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLogInViewController.swift; sourceTree = "<group>"; };
+		C9ACBFEF1DE25211009D042F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C9ACBFF11DE25883009D042F /* ParseSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseSignUpViewController.swift; sourceTree = "<group>"; };
 		C9AFBC3F1DCD998500C24F2F /* Lineup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lineup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9AFBC421DCD998500C24F2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9AFBC471DCD998500C24F2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +101,16 @@
 				4F9E12DB1AC2EFFD234CC00F /* Pods_Lineup.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9ACBFEC1DE24316009D042F /* Login+Signup */ = {
+			isa = PBXGroup;
+			children = (
+				FCFF26DA1DD99C540021D934 /* LoginViewController.swift */,
+				C9ACBFED1DE2443F009D042F /* ParseLogInViewController.swift */,
+				C9ACBFF11DE25883009D042F /* ParseSignUpViewController.swift */,
+			);
+			name = "Login+Signup";
 			sourceTree = "<group>";
 		};
 		C9AFBC361DCD998500C24F2F = {
@@ -158,11 +174,11 @@
 		FC4F32841DD30FCC003A686E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C9ACBFEC1DE24316009D042F /* Login+Signup */,
 				FCBE09251DDD7EFC0086FDDF /* Onboarding */,
 				FC4F32851DD31001003A686E /* DiscoverViewController.swift */,
 				FC4F32871DD31010003A686E /* SavedViewController.swift */,
 				FC4F32891DD3101C003A686E /* ProfileViewController.swift */,
-				FCFF26DA1DD99C540021D934 /* LoginViewController.swift */,
 				FCFF26DC1DD9A26E0021D934 /* MainViewController.swift */,
 			);
 			name = "View Controllers";
@@ -175,6 +191,7 @@
 				FC6D29BC1DD9714100D5673E /* ProfileHeaderView.swift */,
 				FC6D29BE1DD979AA00D5673E /* CategoryCell.swift */,
 				FCBE08FF1DDAD05F0086FDDF /* DraggableEventView.swift */,
+				C9ACBFEF1DE25211009D042F /* Colors.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -316,6 +333,7 @@
 			files = (
 				FC8F51D71DD931F200892229 /* SavedEventCell.swift in Sources */,
 				FCBE09271DDD7F170086FDDF /* OnboardingPageViewController.swift in Sources */,
+				C9ACBFEE1DE2443F009D042F /* ParseLogInViewController.swift in Sources */,
 				C9F774F41DD7AB330080D242 /* Ticket.swift in Sources */,
 				C9F774EC1DD77F1C0080D242 /* Event.swift in Sources */,
 				C9F774EA1DD77F020080D242 /* EventbriteClient.swift in Sources */,
@@ -326,10 +344,12 @@
 				FC4F328A1DD3101C003A686E /* ProfileViewController.swift in Sources */,
 				FCFF26DD1DD9A26E0021D934 /* MainViewController.swift in Sources */,
 				C9F774F01DD7AB000080D242 /* User.swift in Sources */,
+				C9ACBFF01DE25211009D042F /* Colors.swift in Sources */,
 				FC4F32881DD31010003A686E /* SavedViewController.swift in Sources */,
 				C9F774F81DD7AD370080D242 /* Source.swift in Sources */,
 				C9AFBC431DCD998500C24F2F /* AppDelegate.swift in Sources */,
 				FC6D29BD1DD9714100D5673E /* ProfileHeaderView.swift in Sources */,
+				C9ACBFF21DE25883009D042F /* ParseSignUpViewController.swift in Sources */,
 				FCFF26DB1DD99C540021D934 /* LoginViewController.swift in Sources */,
 				C9F774EE1DD7AAF00080D242 /* Category.swift in Sources */,
 				FCBE09001DDAD05F0086FDDF /* DraggableEventView.swift in Sources */,
