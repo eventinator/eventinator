@@ -10,8 +10,8 @@ import Foundation
 
 struct Ticket {    
     let id: String
-    let eventId: String
-    let price: String
-    let name: String
-    let tier: UInt
+    let eventId: String?
+    let price: String?
+    let name: String?
+    let tier: UInt?
 }

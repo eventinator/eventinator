@@ -21,6 +21,8 @@ struct Event {
     let categoryId: String?
     let guestCount: UInt?
     let source: Source
+    let location: Location?
+    let tickets: [Ticket?]
     
     static func persistEvent(event: Event) {
         let user = PFUser.current()
@@ -95,7 +97,8 @@ struct Event {
                         let categoryId  = object.object(forKey: "categoryId") as? String ?? ""
                         let guestCount  = object.object(forKey: "guestCount") as? UInt ?? 0
                         
-                        let fetchedEvent = Event(id: id, title: title, theDescription: description, start: start, end: end, locationId: locationId, url: url, imageUrl: imageUrl, categoryId: categoryId, guestCount: guestCount, source: querySource)
+                        let fetchedEvent = Event(id: id, title: title, theDescription: description, start: start, end: end, locationId: locationId, url: url, imageUrl: imageUrl, categoryId: categoryId, guestCount: guestCount, source: querySource, location: nil, tickets: [Ticket]()
+                        )
                         
                         events.append(fetchedEvent)
                     }

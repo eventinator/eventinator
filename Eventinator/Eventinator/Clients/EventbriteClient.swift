@@ -26,6 +26,7 @@ public class EventbriteClient {
             "location.within": "100mi",
             "location.latitude": "37.7749",
             "location.longitude": "-122.4194",
+            "expand": "venue,ticket_classes",
             ]
         Alamofire.request(kBaseURL + "/events/search/", method: .get, parameters: parameters)
             .validate(contentType: kValidMIMETypes)
@@ -74,9 +75,53 @@ extension Event {
             imageUrl: URL(string: json.value(forKeyPath: "logo.original.url") as? String ?? ""),
             categoryId: json["category_id"] as? String,
             guestCount: json["capacity"] as? UInt,
-            source: Source(eventId: sourceId, sourceId: sourceId, source: kEventbriteSource)
+            source: Source(eventId: sourceId, sourceId: sourceId, source: kEventbriteSource),
+            location: Location.fromEventbrite(json["venue"] as? NSDictionary),
+            tickets: Ticket.fromEventbrite(json)
         )
     }
+}
+
+extension Location {
+    static func fromEventbrite(_ json: NSDictionary?) -> Location? {
+        guard json != nil else {
+            return nil
+        }
+        let json = json!
+        let latStr = json["latitude"] as? NSString
+        let lngStr = json["longitude"] as? NSString
+        return Location(
+            id: json["id"] as! String,
+            lat: latStr?.doubleValue ?? nil,
+            lng: lngStr?.doubleValue ?? nil,
+            name: json["name"] as? String,
+            address: json.value(forKeyPath: "address.localized_address_display") as? String
+        )
+    }
+}
+
+extension Ticket {
+    static func fromEventbrite(_ json: NSDictionary) -> [Ticket] {
+        var tickets = [Ticket]()
+        let eventbriteTickets = json["ticket_classes"] as? [NSDictionary]
+        guard eventbriteTickets != nil else {
+            return tickets
+        }
+        for eventbriteTicket in eventbriteTickets! {
+            tickets.append(Ticket.fromEventbrite(eventbriteTicket))
+        }
+        return tickets
+    }
     
-    
+    static func fromEventbrite(_ json: NSDictionary) -> Ticket {
+        let sourceId = json["id"] as! String
+        let free = json["free"] as? Bool ?? false
+        let price = free ? "FREE" : json.value(forKeyPath: "cost.display") as? String ?? ""
+        return Ticket(
+            id: sourceId,
+            eventId: json["event_id"] as? String,
+            price: price,
+            name: json["name"] as? String,
+            tier: 0)
+    }
 }
