@@ -20,9 +20,12 @@ protocol DraggableEventViewDelegate {
 
 @IBDesignable class DraggableEventView: UIView {
     
+    let DEGREE_TILT = Float(20)
+    
     var view: UIView!
     var parentView: UIView!
     var parentViewCenter: CGPoint!
+    var lastX: CGFloat!
     var delegate: DraggableEventViewDelegate!
     var panGesture: UIPanGestureRecognizer!
     
@@ -32,6 +35,8 @@ protocol DraggableEventViewDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var likeImageView: UIImageView!
+    @IBOutlet weak var passImageView: UIImageView!
     
     var isDraggable: Bool! {
         didSet {
@@ -59,6 +64,9 @@ protocol DraggableEventViewDelegate {
             titleLabel.text = event.title
             locationLabel.text = event.locationId
             descriptionLabel.text = event.theDescription
+            
+            likeImageView.alpha = 0
+            passImageView.alpha = 0
             
             // Reset view to the center
             self.parentView.center = self.parentViewCenter
@@ -92,31 +100,75 @@ protocol DraggableEventViewDelegate {
         addSubview(view)
         view.layer.cornerRadius = 5
         eventImageView.layer.cornerRadius = 5
+        likeImageView.alpha = 0
+        passImageView.alpha = 0
     }
     
     func didPan(sender: UIPanGestureRecognizer) {
         let location = sender.location(in: view)
 //        let velocity = sender.velocity(in: localView)
         let translation = sender.translation(in: view)
+//        print("translation: \(translation)")
         //        let rotation = sender.rotation(in: localView)
         
         if sender.state == .began {
             parentViewCenter = parentView.center
+            lastX = 0
         } else if sender.state == .changed {
-            
             // Translate the parent card view
             // Rotate the inner content view
             let currentRadians = atan2f(Float(view.transform.b), Float(view.transform.a))
             let currentDegrees = currentRadians.radiansToDegrees
-            if translation.x > 0 {
-                if currentDegrees < 15 {
-                    view.transform = view.transform.rotated(by: CGFloat(1.degreesToRadians))
+            
+            if lastX < translation.x {
+                if translation.x > 0 {
+                    if currentDegrees < DEGREE_TILT {
+                        view.transform = view.transform.rotated(by: CGFloat(1.degreesToRadians))
+                        likeImageView.alpha = CGFloat(currentDegrees * (1 / DEGREE_TILT))
+                        
+                        let scaleA = likeImageView.transform.a
+                        likeImageView.transform = CGAffineTransform(scaleX: CGFloat((1 / DEGREE_TILT).adding((Float)(scaleA))), y: CGFloat((1 / DEGREE_TILT).adding((Float)(scaleA))))
+                        print("scaleA: \(scaleA)")
+                    }
+                } else {
+                    if currentDegrees < 0 {
+                        view.transform = view.transform.rotated(by: CGFloat(1.degreesToRadians))
+                        passImageView.alpha = CGFloat(currentDegrees * (-1 / DEGREE_TILT))
+
+                        let scaleA = passImageView.transform.a
+                        passImageView.transform = CGAffineTransform(scaleX: CGFloat((Float)(scaleA).subtracting((1 / DEGREE_TILT))), y: CGFloat((Float)(scaleA).subtracting((1 / DEGREE_TILT))))
+                        print("scaleA: \(scaleA)")
+                    }
                 }
-            } else if translation.x < 0 {
-                if currentDegrees > -15 {
-                    view.transform = view.transform.rotated(by: CGFloat(-1.degreesToRadians))
+            } else {
+                if translation.x > 0 {
+                    if currentDegrees > 0 {
+                        view.transform = view.transform.rotated(by: CGFloat(-1.degreesToRadians))
+                        likeImageView.alpha = CGFloat(currentDegrees * (1 / DEGREE_TILT))
+
+                        let scaleA = likeImageView.transform.a
+                        likeImageView.transform = CGAffineTransform(scaleX: CGFloat((Float)(scaleA).subtracting((1 / DEGREE_TILT))), y: CGFloat((Float)(scaleA).subtracting((1 / DEGREE_TILT))))
+                        print("scaleA: \(scaleA)")
+                    }
+                } else {
+                    if currentDegrees > -20 {
+                        view.transform = view.transform.rotated(by: CGFloat(-1.degreesToRadians))
+                        passImageView.alpha = CGFloat(currentDegrees * (-1 / DEGREE_TILT))
+
+                        let scaleA = passImageView.transform.a
+                        passImageView.transform = CGAffineTransform(scaleX: CGFloat((1 / DEGREE_TILT).adding((Float)(scaleA))), y: CGFloat((1 / DEGREE_TILT).adding((Float)(scaleA))))
+                        print("scaleA: \(scaleA)")
+                    }
                 }
             }
+            if translation.x == 0 || likeImageView.alpha < 0.1 {
+                likeImageView.alpha = 0
+            }
+            if translation.x == 0 || passImageView.alpha < 0.1 {
+                passImageView.alpha = 0
+            }
+            
+            
             //            let midY = localView.bounds.midY
             //            let maxRotation = CGFloat(15.0)
             //            var rad = min(translation.x.degreesToRadians, maxRotation.degreesToRadians)
@@ -132,6 +184,7 @@ protocol DraggableEventViewDelegate {
             
             //localView.transform = CGAffineTransform(rotationAngle: rad)
             
+            lastX = translation.x
             parentView.center = CGPoint(x: parentViewCenter.x + translation.x, y: parentViewCenter.y + translation.y)
         } else if sender.state == .ended {
             let didSwipeRight = translation.x > 100
@@ -145,6 +198,10 @@ protocol DraggableEventViewDelegate {
                     } else {
                         self.parentView.center = self.parentViewCenter
                         self.view.transform = CGAffineTransform.identity
+                        self.likeImageView.alpha = 0
+                        self.passImageView.alpha = 0
+                        self.likeImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        self.passImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
                     }
             },
                 completion: { (isFinished) in
