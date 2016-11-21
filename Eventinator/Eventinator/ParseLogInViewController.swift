@@ -12,11 +12,14 @@ import ParseUI
 class ParseLoginViewController : PFLogInViewController, PFLogInViewControllerDelegate {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         delegate = self
         
         signUpController = ParseSignUpViewController()
-        fields = [.facebook, .twitter, .usernameAndPassword, .logInButton, .signUpButton, .passwordForgotten]
+        fields = [.facebook, .usernameAndPassword, .logInButton, .signUpButton, .passwordForgotten]
+        facebookPermissions = ["public_profile", "email", "user_events"]
+
+        super.viewDidLoad()
+
         logInView?.tintColor = Colors.branding
         logInView?.logo = UIImageView(image: UIImage(named: "lineup-logo-full")!)
         logInView?.logo?.contentMode = .scaleAspectFit
@@ -26,4 +29,5 @@ class ParseLoginViewController : PFLogInViewController, PFLogInViewControllerDel
     func log(_ logInController: PFLogInViewController, didLogIn user: PFUser) {
         NavigationManager.shared.toMain(from: self)
     }
+    
 }

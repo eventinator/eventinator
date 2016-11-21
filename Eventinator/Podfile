@@ -8,6 +8,7 @@ target 'Lineup' do
   pod 'AlamofireImage'
   pod 'Parse'
   pod 'ParseUI'
+  pod 'ParseFacebookUtilsV4'
   pod 'AFNetworking'
 
 end

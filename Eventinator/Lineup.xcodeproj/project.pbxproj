@@ -48,6 +48,7 @@
 		C9ACBFF11DE25883009D042F /* ParseSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseSignUpViewController.swift; sourceTree = "<group>"; };
 		C9ACBFF41DE25B8B009D042F /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationManager.swift; path = Managers/NavigationManager.swift; sourceTree = "<group>"; };
 		C9ACBFF61DE25FA0009D042F /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManager.swift; path = Managers/AccountManager.swift; sourceTree = "<group>"; };
+		C9ACBFF81DE28036009D042F /* Lineup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lineup.entitlements; sourceTree = SOURCE_ROOT; };
 		C9AFBC3F1DCD998500C24F2F /* Lineup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lineup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9AFBC421DCD998500C24F2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9AFBC471DCD998500C24F2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,6 +148,7 @@
 		C9AFBC411DCD998500C24F2F /* Lineup */ = {
 			isa = PBXGroup;
 			children = (
+				C9ACBFF81DE28036009D042F /* Lineup.entitlements */,
 				FC8F51D51DD931D700892229 /* Views */,
 				C9ACBFF31DE25B6B009D042F /* Managers */,
 				C9F774E61DD77ECB0080D242 /* Clients */,
@@ -257,6 +259,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = VR6478DQKS;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -495,6 +502,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Lineup.entitlements;
 				DEVELOPMENT_TEAM = VR6478DQKS;
 				INFOPLIST_FILE = Eventinator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -511,6 +519,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Lineup.entitlements;
 				DEVELOPMENT_TEAM = VR6478DQKS;
 				INFOPLIST_FILE = Eventinator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

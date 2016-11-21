@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import FBSDKCoreKit
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://lineupcodepath.herokuapp.com/parse"
             })
         )
+        PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
         
         // Set the styling for page control dots in onboarding
         let pageControl = UIPageControl.appearance()
@@ -36,7 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    
-    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+    }
 }
 
