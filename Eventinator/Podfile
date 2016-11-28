@@ -10,5 +10,6 @@ target 'Lineup' do
   pod 'ParseUI'
   pod 'ParseFacebookUtilsV4'
   pod 'AFNetworking'
+  pod 'FoldingCell'
 
 end
