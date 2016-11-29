@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ProfileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -18,6 +19,9 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     var categories = [Category]()
     var userCategories = [Category]()
     
+    var locationManager : CLLocationManager!
+    var locationName: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +31,12 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         categoriesCollectionView.dataSource = self
         categories = getCategories()
         userCategories = getUserCategories()
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.distanceFilter = 200
+        locationManager.requestWhenInUseAuthorization()
     }
     
     private func setNavigationBarLogo() {
@@ -43,6 +53,11 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         switch kind {
         case UICollectionElementKindSectionHeader:
             let headerView = categoriesCollectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProfileHeaderView", for: indexPath) as! ProfileHeaderView
+            
+            if let locationName = locationName {
+                headerView.locationLabel.text = locationName
+            }
+            
             // Set the profile info once we have the model
             return headerView
         default:
@@ -111,7 +126,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
                 userCategories.append(category)
             }
         })
-
+        
         return userCategories
     }
     
@@ -126,4 +141,29 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
      }
      */
     
+}
+
+
+extension ProfileViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == CLAuthorizationStatus.authorizedWhenInUse {
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            let geocoder = CLGeocoder()
+            geocoder.reverseGeocodeLocation(location, completionHandler: { (placemarks: [CLPlacemark]?, error: Error?) in
+                if let placemarks = placemarks {
+                    if placemarks.count != 0 {
+                        let placemark = placemarks.first!
+                        self.locationName = placemark.subAdministrativeArea! + " " + placemark.administrativeArea!
+                        self.categoriesCollectionView.reloadData()
+                    }
+                }
+            })
+        }
+    }
 }
