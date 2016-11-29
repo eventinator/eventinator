@@ -49,6 +49,8 @@
 	<string>991403937672886</string>
 	<key>FacebookDisplayName</key>
 	<string>Lineup</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To show your location on the map</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

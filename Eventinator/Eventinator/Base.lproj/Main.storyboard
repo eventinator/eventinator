@@ -82,9 +82,18 @@
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G00-rp-vOA">
                                                     <rect key="frame" x="8" y="180" width="359" height="479"/>
+                                                    <subviews>
+                                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="m49-aU-DoL">
+                                                            <rect key="frame" x="0.0" y="0.0" width="351" height="318"/>
+                                                        </mapView>
+                                                    </subviews>
                                                     <color key="backgroundColor" red="0.64512043630000004" green="1" blue="0.64490334069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="479" id="3QN-44-DCH"/>
+                                                        <constraint firstAttribute="trailing" secondItem="m49-aU-DoL" secondAttribute="trailing" id="6EG-62-Pwu"/>
+                                                        <constraint firstItem="m49-aU-DoL" firstAttribute="leading" secondItem="G00-rp-vOA" secondAttribute="leading" id="Raq-2W-aSX"/>
+                                                        <constraint firstItem="m49-aU-DoL" firstAttribute="top" secondItem="G00-rp-vOA" secondAttribute="top" id="X0O-y3-ang"/>
+                                                        <constraint firstAttribute="bottom" secondItem="m49-aU-DoL" secondAttribute="bottom" id="cpE-qX-r1h"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -102,6 +111,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="itemCount">
                                                 <integer key="value" value="4"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backViewColor">
+                                                <color key="value" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="containerView" destination="G00-rp-vOA" id="pgS-Xn-Bh1"/>
@@ -111,6 +123,7 @@
                                             <outlet property="foregroundView" destination="7gh-6z-SU7" id="aos-NY-EoT"/>
                                             <outlet property="foregroundViewTop" destination="vzx-JD-lB9" id="9yr-w8-TTS"/>
                                             <outlet property="locationLabel" destination="amp-A7-avZ" id="83S-oP-Xaa"/>
+                                            <outlet property="mapView" destination="m49-aU-DoL" id="brU-el-syg"/>
                                             <outlet property="titleLabel" destination="ZAc-16-WkV" id="71Z-Os-xuq"/>
                                         </connections>
                                     </tableViewCell>
