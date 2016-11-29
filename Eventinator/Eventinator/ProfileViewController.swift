@@ -102,10 +102,17 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     private func getUserCategories() -> [Category] {
-        return [Category(id: "music", name: "Live Music"),
-                Category(id: "eating", name: "Eating & Drinking"),
-                Category(id: "movies", name: "Movies"),
-                Category(id: "fun", name: "Fun & Games")]
+        var userCategories = [Category]()
+        Category.fetchPersistedCategories(failure: { (error: Error) in
+            print(error)
+        }, success: { (fetchedCategories: [Category]) in
+            for category in fetchedCategories {
+                print(category)
+                userCategories.append(category)
+            }
+        })
+
+        return userCategories
     }
     
     
