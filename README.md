@@ -47,7 +47,9 @@ The app will feature the use of real-time location, maps, notifications, and a b
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://raw.githubusercontent.com/eventinator/eventinator/master/lineup-walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://raw.githubusercontent.com/eventinator/eventinator/master/lineup-walkthrough-week-2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Week 2' />
+
+<img src='https://raw.githubusercontent.com/eventinator/eventinator/master/lineup-walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Week 1' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
