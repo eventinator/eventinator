@@ -60,9 +60,9 @@ protocol DraggableEventViewDelegate {
             formatter.dateStyle = .medium
             formatter.timeStyle = .short
             dateLabel.text = formatter.string(from: event.start!)
-            costLabel.text = "FREE"
+            costLabel.text = event.tickets[0]?.price
             titleLabel.text = event.title
-            locationLabel.text = event.locationId
+            locationLabel.text = event.location?.address
             descriptionLabel.text = event.theDescription
             
             likeImageView.alpha = 0
