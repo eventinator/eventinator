@@ -210,6 +210,10 @@ protocol DraggableEventViewDelegate {
                     } else if didSwipeLeft {
                         self.delegate.draggableEventView(swiped: SwipeDirection.left)
                     }
+                    self.likeImageView.alpha = 0
+                    self.passImageView.alpha = 0
+                    self.likeImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    self.passImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
             })
         }
     }
