@@ -26,8 +26,8 @@ class SavedEventCell: FoldingCell {
 //            nameLabel.text = "212121"
             
             titleLabel.text = event.title
-            locationLabel.text = event.locationId
-            costLabel.text = "FREE"
+            locationLabel.text = event.location?.address
+            costLabel.text = event.tickets[0]?.price
             if let eventImageUrl = event.imageUrl {
                 eventImageView.setImageWith(eventImageUrl)
             }
