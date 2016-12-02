@@ -20,7 +20,8 @@ protocol DraggableEventViewDelegate {
 
 @IBDesignable class DraggableEventView: UIView {
     
-    let DEGREE_TILT = Float(20)
+    let DEGREE_TILT = Float(8)
+    let SCALE_FACTOR = Float(1)
     
     var view: UIView!
     var parentView: UIView!
@@ -127,7 +128,7 @@ protocol DraggableEventViewDelegate {
                         likeImageView.alpha = CGFloat(currentDegrees * (1 / DEGREE_TILT))
                         
                         let scaleA = likeImageView.transform.a
-                        likeImageView.transform = CGAffineTransform(scaleX: CGFloat((1 / DEGREE_TILT).adding((Float)(scaleA))), y: CGFloat((1 / DEGREE_TILT).adding((Float)(scaleA))))
+                        likeImageView.transform = CGAffineTransform(scaleX: CGFloat((SCALE_FACTOR / DEGREE_TILT).adding((Float)(scaleA))), y: CGFloat((SCALE_FACTOR / DEGREE_TILT).adding((Float)(scaleA))))
                         print("scaleA: \(scaleA)")
                     }
                 } else {
@@ -136,7 +137,7 @@ protocol DraggableEventViewDelegate {
                         passImageView.alpha = CGFloat(currentDegrees * (-1 / DEGREE_TILT))
 
                         let scaleA = passImageView.transform.a
-                        passImageView.transform = CGAffineTransform(scaleX: CGFloat((Float)(scaleA).subtracting((1 / DEGREE_TILT))), y: CGFloat((Float)(scaleA).subtracting((1 / DEGREE_TILT))))
+                        passImageView.transform = CGAffineTransform(scaleX: CGFloat((Float)(scaleA).subtracting((SCALE_FACTOR / DEGREE_TILT))), y: CGFloat((Float)(scaleA).subtracting((SCALE_FACTOR / DEGREE_TILT))))
                         print("scaleA: \(scaleA)")
                     }
                 }
@@ -147,25 +148,33 @@ protocol DraggableEventViewDelegate {
                         likeImageView.alpha = CGFloat(currentDegrees * (1 / DEGREE_TILT))
 
                         let scaleA = likeImageView.transform.a
-                        likeImageView.transform = CGAffineTransform(scaleX: CGFloat((Float)(scaleA).subtracting((1 / DEGREE_TILT))), y: CGFloat((Float)(scaleA).subtracting((1 / DEGREE_TILT))))
+                        likeImageView.transform = CGAffineTransform(scaleX: CGFloat((Float)(scaleA).subtracting((SCALE_FACTOR / DEGREE_TILT))), y: CGFloat((Float)(scaleA).subtracting((SCALE_FACTOR / DEGREE_TILT))))
                         print("scaleA: \(scaleA)")
                     }
                 } else {
-                    if currentDegrees > -20 {
+                    if currentDegrees > (DEGREE_TILT * -1) {
                         view.transform = view.transform.rotated(by: CGFloat(-1.degreesToRadians))
                         passImageView.alpha = CGFloat(currentDegrees * (-1 / DEGREE_TILT))
 
                         let scaleA = passImageView.transform.a
-                        passImageView.transform = CGAffineTransform(scaleX: CGFloat((1 / DEGREE_TILT).adding((Float)(scaleA))), y: CGFloat((1 / DEGREE_TILT).adding((Float)(scaleA))))
+                        passImageView.transform = CGAffineTransform(scaleX: CGFloat((SCALE_FACTOR / DEGREE_TILT).adding((Float)(scaleA))), y: CGFloat((SCALE_FACTOR / DEGREE_TILT).adding((Float)(scaleA))))
                         print("scaleA: \(scaleA)")
                     }
                 }
             }
-            if translation.x == 0 || likeImageView.alpha < 0.1 {
+            if translation.x <= 0 || likeImageView.alpha < 0.2 {
                 likeImageView.alpha = 0
+                likeImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
             }
-            if translation.x == 0 || passImageView.alpha < 0.1 {
+            if translation.x >= 0 || passImageView.alpha < 0.2 {
                 passImageView.alpha = 0
+                passImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
+            if currentDegrees >= DEGREE_TILT || likeImageView.transform.a < 0.1 {
+                likeImageView.alpha = 1
+            }
+            if currentDegrees <= (DEGREE_TILT * -1) || passImageView.transform.a < 0.1 {
+                passImageView.alpha = 1
             }
             
             
