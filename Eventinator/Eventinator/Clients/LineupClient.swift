@@ -16,7 +16,7 @@ public class LineupClient {
         EventbriteClient.shared.events(failure: failure, success: success)
     }
     
-    func categories(failure: ((Error) -> ())? = nil, success: @escaping ([Category]) -> ()) {
+    func userCategories(failure: ((Error) -> ())? = nil, success: @escaping ([Category]) -> ()) {
         Category.fetchPersistedCategories(failure: failure, success: success)
     }
 }
