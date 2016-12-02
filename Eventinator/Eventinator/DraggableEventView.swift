@@ -38,6 +38,7 @@ protocol DraggableEventViewDelegate {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var passImageView: UIImageView!
+    @IBOutlet weak var dateCostBarView: UIView!
     
     var isDraggable: Bool! {
         didSet {
@@ -99,8 +100,9 @@ protocol DraggableEventViewDelegate {
         view.frame = bounds
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         addSubview(view)
-        view.layer.cornerRadius = 5
-        eventImageView.layer.cornerRadius = 5
+        view.layer.cornerRadius = 3
+        eventImageView.layer.cornerRadius = 3
+//        dateCostBarView.layer.cornerRadius = 3
         likeImageView.alpha = 0
         passImageView.alpha = 0
     }

@@ -61,8 +61,8 @@ class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
         let logo = UIImage(named: "lineup-logo.png")
         let imageView = UIImageView(image: logo)
         self.navigationItem.titleView = imageView
-        topEventView.layer.cornerRadius = 5
-        bottomEventView.layer.cornerRadius = 5
+        topEventView.layer.cornerRadius = 3
+        bottomEventView.layer.cornerRadius = 3
     }
 
     func markEventAsSavedForUser(event: Event) {
