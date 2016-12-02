@@ -21,10 +21,16 @@ protocol DraggableEventViewDelegate {
 @IBDesignable class DraggableEventView: UIView {
     
     let DEGREE_TILT = Float(8)
-    let SCALE_FACTOR = Float(1)
+    let SCALE_FACTOR = Float(2.5)
     
     var view: UIView!
-    var parentView: UIView!
+    var parentView: UIView! {
+        didSet {
+            if !isDraggable! {
+                showShadow()
+            }
+        }
+    }
     var parentViewCenter: CGPoint!
     var lastX: CGFloat!
     var delegate: DraggableEventViewDelegate!
@@ -108,13 +114,10 @@ protocol DraggableEventViewDelegate {
     }
     
     func didPan(sender: UIPanGestureRecognizer) {
-        let location = sender.location(in: view)
-//        let velocity = sender.velocity(in: localView)
         let translation = sender.translation(in: view)
-//        print("translation: \(translation)")
-        //        let rotation = sender.rotation(in: localView)
         
         if sender.state == .began {
+            showShadow()
             parentViewCenter = parentView.center
             lastX = 0
         } else if sender.state == .changed {
@@ -198,6 +201,7 @@ protocol DraggableEventViewDelegate {
             lastX = translation.x
             parentView.center = CGPoint(x: parentViewCenter.x + translation.x, y: parentViewCenter.y + translation.y)
         } else if sender.state == .ended {
+            hideShadow()
             let didSwipeRight = translation.x > 100
             let didSwipeLeft = translation.x < -100
             UIView.animate(withDuration: 0.2,
@@ -227,6 +231,19 @@ protocol DraggableEventViewDelegate {
                     self.passImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
             })
         }
+    }
+    
+    func showShadow() {
+        parentView.layer.masksToBounds = false
+        parentView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        parentView.layer.shadowRadius = 10
+        parentView.layer.shadowOpacity = 0.1
+    }
+    
+    func hideShadow() {
+        parentView.layer.masksToBounds = true
+        parentView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        parentView.layer.shadowRadius = 0
     }
 
 }

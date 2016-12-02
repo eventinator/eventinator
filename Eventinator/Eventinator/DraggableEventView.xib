@@ -77,19 +77,19 @@
                     </constraints>
                 </view>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="like-star" translatesAutoresizingMaskIntoConstraints="NO" id="BPi-IW-4IK">
-                    <rect key="frame" x="137.5" y="205.5" width="100" height="100"/>
+                    <rect key="frame" x="162.5" y="230.5" width="50" height="50"/>
                     <color key="tintColor" red="0.94117647059999998" green="0.34901960780000002" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="EeH-eW-dEB"/>
-                        <constraint firstAttribute="height" constant="100" id="QR4-Si-VOX"/>
+                        <constraint firstAttribute="width" constant="50" id="EeH-eW-dEB"/>
+                        <constraint firstAttribute="height" constant="50" id="QR4-Si-VOX"/>
                     </constraints>
                 </imageView>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="pass-x" translatesAutoresizingMaskIntoConstraints="NO" id="KQi-rF-G1C">
-                    <rect key="frame" x="137.5" y="205.5" width="100" height="100"/>
+                    <rect key="frame" x="162.5" y="230.5" width="50" height="50"/>
                     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="7gG-3p-RmQ"/>
-                        <constraint firstAttribute="height" constant="100" id="Rhc-UK-twG"/>
+                        <constraint firstAttribute="width" constant="50" id="7gG-3p-RmQ"/>
+                        <constraint firstAttribute="height" constant="50" id="Rhc-UK-twG"/>
                     </constraints>
                 </imageView>
             </subviews>
