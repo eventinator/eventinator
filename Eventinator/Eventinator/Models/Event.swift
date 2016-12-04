@@ -87,15 +87,15 @@ struct Event {
                         let querySource = Source(eventId: eventId, sourceId: sourceId, source: sourceText)
                         
                         let id = object.object(forKey: "id") as? String ?? ""
-                        let title  = object.object(forKey: "title") as? String ?? ""
+                        let title = object.object(forKey: "title") as? String ?? ""
                         let description = object.object(forKey: "description") as? String ?? ""
                         let start = object.object(forKey: "start") as! Date
                         let end = object.object(forKey: "end") as! Date
-                        let locationId  = object.object(forKey: "locationId") as? String ?? ""
-                        let url  = URL(string: (object.object(forKey: "url") as! String))!
-                        let imageUrl  = URL(string: (object["imageUrl"] as! String))!
-                        let categoryId  = object.object(forKey: "categoryId") as? String ?? ""
-                        let guestCount  = object.object(forKey: "guestCount") as? UInt ?? 0
+                        let locationId = object.object(forKey: "locationId") as? String ?? ""
+                        let url = URL(string: (object.object(forKey: "url") as! String))!
+                        let imageUrl = URL(string: (object["imageUrl"] as! String))!
+                        let categoryId = object.object(forKey: "categoryId") as? String ?? ""
+                        let guestCount = object.object(forKey: "guestCount") as? UInt ?? 0
                         
                         let fetchedEvent = Event(id: id, title: title, theDescription: description, start: start, end: end, locationId: locationId, url: url, imageUrl: imageUrl, categoryId: categoryId, guestCount: guestCount, source: querySource, location: nil, tickets: [Ticket]()
                         )

@@ -15,12 +15,10 @@ class SavedViewController: UIViewController {
     
     var events = [Event]()
     
-    
     let kCloseCellHeight: CGFloat = 179
     let kOpenCellHeight: CGFloat = 488
     let kRowsCount = 3
     var cellHeights = [CGFloat]()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,31 +31,34 @@ class SavedViewController: UIViewController {
         
         setNavigationBarLogo()
         
-        createCellHeightsArray()
-        
-        LineupClient.shared.events(failure: { error in
+        LineupClient.shared.eventsSavedForUser(failure: { error in
             print(error)
         }) { events in
-            print(events)
-            self.events = events
-            self.eventsTableView.reloadData()
+            // if the user hasn't saved any events then just show the discover tab
+            if events.count == 0 {
+                print("No saved events found for user. Defaulting to discover events")
+                LineupClient.shared.events(failure: { error in
+                    print(error)
+                }) { events in
+                    print(events)
+                    self.events = events
+                    self.eventsTableView.reloadData()
+                    self.createCellHeightsArray()
+                }
+            } else {
+                print("Found and using saved events for user")
+                print(events)
+                self.events = events
+                self.eventsTableView.reloadData()
+                self.createCellHeightsArray()
+            }
         }
     }
     
     func createCellHeightsArray() {
-        for _ in 0...kRowsCount {
+        for _ in 0...events.count {
             cellHeights.append(kCloseCellHeight)
         }
-    }
-    
-    func fetchUserSavedEvents() {
-        Event.fetchPersistedEvents(failure: { (error: Error) in
-            print(error)
-        }, success: { (fetchedEvents: [Event]) in
-            for event in fetchedEvents {
-                print(event)
-            }
-        })
     }
     
     private func setNavigationBarLogo() {
@@ -65,25 +66,11 @@ class SavedViewController: UIViewController {
         let imageView = UIImageView(image: logo)
         self.navigationItem.titleView = imageView
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
-
 
 extension SavedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        return events.count
-        return kRowsCount
+        return events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -92,6 +79,7 @@ extension SavedViewController: UITableViewDataSource {
         if indexPath.row < events.count {
             cell.event = events[indexPath.row]
         }
+        
         return cell
     }
 }
@@ -111,11 +99,11 @@ extension SavedViewController: UITableViewDelegate {
         
         var duration = 0.0
         if cellHeights[indexPath.row] == kCloseCellHeight { // open cell
-            cellHeights[(indexPath as NSIndexPath).row] = kOpenCellHeight
+            cellHeights[indexPath.row] = kOpenCellHeight
             cell.selectedAnimation(true, animated: true, completion: nil)
             duration = 0.5
-        } else {// close cell
-            cellHeights[(indexPath as NSIndexPath).row] = kCloseCellHeight
+        } else { // close cell
+            cellHeights[indexPath.row] = kCloseCellHeight
             cell.selectedAnimation(false, animated: true, completion: nil)
             duration = 1.1
         }
