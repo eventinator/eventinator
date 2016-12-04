@@ -10,7 +10,7 @@ import Foundation
 
 struct User {
     let id: String
-    let firstName: String?
-    let lastName: String?
+    let name: String?
     let facebookId: String?
+    let profilePictureURL: URL?
 }

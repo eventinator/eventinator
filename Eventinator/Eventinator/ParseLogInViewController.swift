@@ -16,7 +16,7 @@ class ParseLoginViewController : PFLogInViewController, PFLogInViewControllerDel
         
         signUpController = ParseSignUpViewController()
         fields = [.facebook, .usernameAndPassword, .logInButton, .signUpButton, .passwordForgotten]
-        facebookPermissions = ["public_profile", "email", "user_events"]
+        facebookPermissions = ["public_profile", "email"]
 
         super.viewDidLoad()
 
@@ -27,6 +27,7 @@ class ParseLoginViewController : PFLogInViewController, PFLogInViewControllerDel
     }
     
     func log(_ logInController: PFLogInViewController, didLogIn user: PFUser) {
+        AccountManager.shared.update()
         NavigationManager.shared.toMain(from: self)
     }
     

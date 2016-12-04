@@ -23,6 +23,7 @@ class ParseSignUpViewController : PFSignUpViewController, PFSignUpViewController
     
     
     func signUpViewController(_ signUpController: PFSignUpViewController, didSignUp user: PFUser) {
+        AccountManager.shared.update()
         NavigationManager.shared.toMain(from: self)
     }
 }

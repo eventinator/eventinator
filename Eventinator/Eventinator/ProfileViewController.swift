@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import AFNetworking
 
 class ProfileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -24,7 +25,6 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setNavigationBarLogo()
         
         categoriesCollectionView.delegate = self
@@ -56,6 +56,10 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
             
             if let locationName = locationName {
                 headerView.locationLabel.text = locationName
+            }
+            
+            if let profilePictureURL = AccountManager.shared.current?.profilePictureURL {
+                headerView.profileImageView.setImageWith(profilePictureURL)
             }
             
             // Set the profile info once we have the model
