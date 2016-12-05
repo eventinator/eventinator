@@ -42,7 +42,7 @@ class SavedViewController: UIViewController {
         
         eventsTableView.dataSource = self
         eventsTableView.delegate = self
-        eventsTableView.estimatedRowHeight = 100
+        eventsTableView.estimatedRowHeight = 179
         eventsTableView.rowHeight = UITableViewAutomaticDimension
         eventsTableView.separatorColor = UIColor.clear
         
@@ -52,19 +52,19 @@ class SavedViewController: UIViewController {
             print(error)
         }) { events in
             // if the user hasn't saved any events then just show the discover tab
-            if events.count == 0 {
+            if events.count >= 0 {
                 print("No saved events found for user. Defaulting to discover events")
                 LineupClient.shared.events(failure: { error in
                     print(error)
                 }) { events in
-                    print(events)
+//                    print(events)
                     self.events = events
                     self.eventsTableView.reloadData()
                     self.createCellHeightsArray()
                 }
             } else {
                 print("Found and using saved events for user")
-                print(events)
+//                print(events)
                 self.events = events
                 self.eventsTableView.reloadData()
                 self.createCellHeightsArray()

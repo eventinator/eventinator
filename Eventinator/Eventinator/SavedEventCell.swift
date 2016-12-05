@@ -20,6 +20,11 @@ class SavedEventCell: FoldingCell {
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var eventImageView: UIImageView!
     
+    @IBOutlet weak var startDateLabel: UILabel!
+    @IBOutlet weak var endDateLabel: UILabel!
+    
+    let formatter = DateFormatter()
+    
     var event: Event! {
         didSet {
             //            nameLabel.text = event.id
@@ -35,6 +40,10 @@ class SavedEventCell: FoldingCell {
             if let eventImageUrl = event.imageUrl {
                 eventImageView.setImageWith(eventImageUrl)
             }
+            
+            formatter.dateFormat = "E MMM d h:mm a"
+            startDateLabel.text = formatter.string(from: event.start!)
+            endDateLabel.text = formatter.string(from: event.end!)
         }
     }
     
