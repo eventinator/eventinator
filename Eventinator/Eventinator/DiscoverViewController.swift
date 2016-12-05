@@ -9,7 +9,7 @@
 import UIKit
 
 class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
-
+    
     @IBOutlet weak var bottomEventView: DraggableEventView!
     @IBOutlet weak var topEventView: DraggableEventView!
     
@@ -17,7 +17,7 @@ class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setNavigationBarLogo()
         
         topEventView.delegate = self
@@ -40,6 +40,11 @@ class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
     }
     
     func draggableEventView(swiped direction: SwipeDirection) {
+        if direction == .right {
+            let swipedEvent = topEventView.event
+            Event.persistEvent(event: swipedEvent!)
+        }
+        
         events.remove(at: 0)
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: {
             if self.events.count > 0 {
@@ -63,20 +68,4 @@ class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
         topEventView.layer.cornerRadius = 3
         bottomEventView.layer.cornerRadius = 3
     }
-
-    func markEventAsSavedForUser(event: Event) {
-        Event.persistEvent(event: event)
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
