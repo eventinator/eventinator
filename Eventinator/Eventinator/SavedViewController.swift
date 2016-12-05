@@ -8,10 +8,19 @@
 
 import UIKit
 import FoldingCell
+import FSCalendar
 
 class SavedViewController: UIViewController {
     
     @IBOutlet weak var eventsTableView: UITableView!
+    @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
+    let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        return formatter
+    }()
+    let gregorian: NSCalendar! = NSCalendar(calendarIdentifier:NSCalendar.Identifier.gregorian)
     
     var events = [Event]()
     
@@ -22,6 +31,14 @@ class SavedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        calendar.appearance.caseOptions = [.headerUsesUpperCase,.weekdayUsesUpperCase]
+        calendar.scope = .week
+        calendar.select(Date())
+        calendar.scopeGesture.isEnabled = true
+        calendar.delegate = self
+        calendar.dataSource = self
         
         eventsTableView.dataSource = self
         eventsTableView.delegate = self
@@ -129,5 +146,31 @@ extension SavedViewController: UITableViewDelegate {
         }
         
         //cell.number = indexPath.row
+    }
+}
+
+extension SavedViewController: FSCalendarDataSource, FSCalendarDelegate {
+    
+    func minimumDate(for calendar: FSCalendar) -> Date {
+        return formatter.date(from: "2016/01/01")!
+    }
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        // TODO @eveliotc Display events dots here
+        let day: Int! = self.gregorian.component(.day, from: date)
+        return day % 5 == 0 ? day/5 : 0;
+    }
+    
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        print("change page to \(self.formatter.string(from: calendar.currentPage))")
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date) {
+        print("calendar did select date \(self.formatter.string(from: date))")
+    }
+    
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+        calendarHeightConstraint.constant = bounds.height
+        view.layoutIfNeeded()
     }
 }

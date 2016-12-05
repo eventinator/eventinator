@@ -11,5 +11,5 @@ target 'Lineup' do
   pod 'ParseFacebookUtilsV4'
   pod 'AFNetworking'
   pod 'FoldingCell'
-
+  pod 'FSCalendar'
 end

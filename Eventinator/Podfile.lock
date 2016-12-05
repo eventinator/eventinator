@@ -28,6 +28,7 @@ PODS:
   - FBSDKLoginKit (4.17.0):
     - FBSDKCoreKit
   - FoldingCell (2.0.1)
+  - FSCalendar (2.6.0)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
   - ParseFacebookUtilsV4 (1.11.1):
@@ -45,6 +46,7 @@ DEPENDENCIES:
   - Alamofire
   - AlamofireImage
   - FoldingCell
+  - FSCalendar
   - Parse
   - ParseFacebookUtilsV4
   - ParseUI
@@ -57,10 +59,11 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 30a21d2d7b92984b3d80497113433c00824c35e9
   FBSDKLoginKit: 42b7129ac0373ca99eaf4cbebf4d07bd42371f59
   FoldingCell: cfa0c9b0f1ee94d4443e3679bd6e5ebe3b386ebf
+  FSCalendar: c00fa5f4c3ec343ee6f7b804ae19322e9898bb84
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
 
-PODFILE CHECKSUM: f5396b9a453b06ee1d0677d07cd62823fe019cfc
+PODFILE CHECKSUM: 1dd26dbbb6a22da2010a7e1aa246e389f5a479ae
 
 COCOAPODS: 1.1.1
