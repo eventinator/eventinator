@@ -23,13 +23,13 @@ class SavedEventCell: FoldingCell {
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!
     
+    @IBOutlet weak var descriptionLabel: UILabel!
+
+    
     let formatter = DateFormatter()
     
     var event: Event! {
         didSet {
-            //            nameLabel.text = event.id
-//            nameLabel.text = "212121"
-            
             titleLabel.text = event.title
             locationLabel.text = event.location?.address
             if let tickets = event?.tickets {
@@ -44,6 +44,20 @@ class SavedEventCell: FoldingCell {
             formatter.dateFormat = "E MMM d h:mm a"
             startDateLabel.text = formatter.string(from: event.start!)
             endDateLabel.text = formatter.string(from: event.end!)
+            
+            descriptionLabel.text = event.theDescription
+            
+            let eventLat = event.location?.lat!
+            let eventLong = event.location?.lng!
+            
+            let location = CLLocation(latitude: eventLat!, longitude: eventLong!)
+            let span = MKCoordinateSpanMake(0.1, 0.1)
+            let region = MKCoordinateRegionMake(location.coordinate, span)
+            mapView.setRegion(region, animated: false)
+            
+            let location2D = CLLocationCoordinate2D(latitude: eventLat!, longitude: eventLong!)
+            
+            addAnnotationAtCoordinate(coordinate: location2D, withTitle: "Event Location")
         }
     }
     
@@ -52,18 +66,7 @@ class SavedEventCell: FoldingCell {
         super.awakeFromNib()
 //        containerView.layer.cornerRadius = 5
         eventImageView.layer.cornerRadius = 5
-        
-        let location = CLLocation(latitude: 37.7833, longitude: -122.4167)
-        let span = MKCoordinateSpanMake(0.1, 0.1)
-        let region = MKCoordinateRegionMake(location.coordinate, span)
-        mapView.setRegion(region, animated: false)
-     
-//        let eventLat = event.location?.lat
-//        let eventLong = event.location?.lng
-//        let location2D = CLLocationCoordinate2D(latitude: eventLat!, longitude: eventLong!)
-        
-        let location2D = CLLocationCoordinate2D(latitude: 37.7833, longitude: -122.4167)
-        addAnnotationAtCoordinate(coordinate: location2D, withTitle: "Event Location")
+        mapView.layer.cornerRadius = 5;
     }
 
     private func addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2D, withTitle title: String?) {

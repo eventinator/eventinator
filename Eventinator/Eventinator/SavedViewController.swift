@@ -44,7 +44,6 @@ class SavedViewController: UIViewController {
         eventsTableView.delegate = self
         eventsTableView.estimatedRowHeight = 179
         eventsTableView.rowHeight = UITableViewAutomaticDimension
-        eventsTableView.separatorColor = UIColor.clear
         
         setNavigationBarLogo()
         
@@ -57,14 +56,12 @@ class SavedViewController: UIViewController {
                 LineupClient.shared.events(failure: { error in
                     print(error)
                 }) { events in
-//                    print(events)
                     self.events = events
                     self.eventsTableView.reloadData()
                     self.createCellHeightsArray()
                 }
             } else {
                 print("Found and using saved events for user")
-//                print(events)
                 self.events = events
                 self.eventsTableView.reloadData()
                 self.createCellHeightsArray()

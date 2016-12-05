@@ -31,7 +31,6 @@ class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
         LineupClient.shared.events(failure: { error in
             print(error)
         }) { events in
-            print(events)
             self.events = events
             self.topEventView.event = self.events[0]
             self.topEventView.isHidden = false

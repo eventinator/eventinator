@@ -116,17 +116,28 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G00-rp-vOA">
                                                     <rect key="frame" x="8" y="180" width="359" height="479"/>
                                                     <subviews>
-                                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="m49-aU-DoL">
-                                                            <rect key="frame" x="0.0" y="0.0" width="351" height="318"/>
+                                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="m49-aU-DoL">
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="200"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="200" id="7cw-kn-hIa"/>
+                                                            </constraints>
                                                         </mapView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV4-PQ-OhZ">
+                                                            <rect key="frame" x="4" y="204" width="351" height="14"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.64512043630000004" green="1" blue="0.64490334069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.94117647058823528" green="0.34901960784313724" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="479" id="3QN-44-DCH"/>
                                                         <constraint firstAttribute="trailing" secondItem="m49-aU-DoL" secondAttribute="trailing" id="6EG-62-Pwu"/>
+                                                        <constraint firstItem="aV4-PQ-OhZ" firstAttribute="leading" secondItem="G00-rp-vOA" secondAttribute="leading" constant="4" id="8AK-57-htf"/>
+                                                        <constraint firstItem="aV4-PQ-OhZ" firstAttribute="top" secondItem="m49-aU-DoL" secondAttribute="bottom" constant="4" id="F8P-NE-bXy"/>
                                                         <constraint firstItem="m49-aU-DoL" firstAttribute="leading" secondItem="G00-rp-vOA" secondAttribute="leading" id="Raq-2W-aSX"/>
                                                         <constraint firstItem="m49-aU-DoL" firstAttribute="top" secondItem="G00-rp-vOA" secondAttribute="top" id="X0O-y3-ang"/>
-                                                        <constraint firstAttribute="bottom" secondItem="m49-aU-DoL" secondAttribute="bottom" id="cpE-qX-r1h"/>
+                                                        <constraint firstAttribute="trailing" secondItem="aV4-PQ-OhZ" secondAttribute="trailing" constant="4" id="tms-Np-U06"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -145,13 +156,14 @@
                                                 <integer key="value" value="4"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="backViewColor">
-                                                <color key="value" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="containerView" destination="G00-rp-vOA" id="pgS-Xn-Bh1"/>
                                             <outlet property="containerViewTop" destination="uIj-PD-XbH" id="xWG-DW-QVQ"/>
                                             <outlet property="costLabel" destination="GWd-Cl-PZ6" id="fL7-Nb-7wM"/>
+                                            <outlet property="descriptionLabel" destination="aV4-PQ-OhZ" id="uvk-p9-VP4"/>
                                             <outlet property="endDateLabel" destination="JhM-Fk-JKm" id="xi1-8A-htR"/>
                                             <outlet property="eventImageView" destination="TjQ-Jc-7AZ" id="9Q0-SN-o1P"/>
                                             <outlet property="foregroundView" destination="7gh-6z-SU7" id="aos-NY-EoT"/>
@@ -435,7 +447,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qyc-LU-WDo" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Saved" image="ic_star" id="cWr-jb-EyF"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="qmW-6l-NTb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="qmW-6l-NTb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

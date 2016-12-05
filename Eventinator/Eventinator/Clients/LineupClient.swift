@@ -20,19 +20,9 @@ public class LineupClient {
             print("Using categories \(categories)")
             EventbriteClient.shared.events(categories: categories, failure: failure, success: success)
         }
-        
     }
     
-    // TODO(MIKE)
-    // Fetch all events specific to the category preferences of the user
     func eventsDiscoverForUser(failure: ((Error) -> ())? = nil, success: @escaping ([Event]) -> ()) {
-        //        Category.fetchPersistedCategories(failure: failure, success: success)
-        
-        //        Category.fetchPersistedCategories(failure: failure, success: success)
-        //        EventbriteClient.shared.events(userCategories, failure: failure, success: success)
-        //        Event.fetchPersistedEvents(failure: failure, success: success)
-        //        EventbriteClient.shared.userSavedEvents(failure: failure, success: success)
-        
         EventbriteClient.shared.events(failure: failure, success: success)
     }
 
