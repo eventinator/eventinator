@@ -19,8 +19,8 @@ public class EventbriteClient {
     
     static let shared = EventbriteClient()
     
-    func events(failure: ((Error) -> ())? = nil, success: @escaping ([Event]) -> ()) {
-        let parameters: Parameters = [
+    func events(categories: [Category]? = nil,failure: ((Error) -> ())? = nil, success: @escaping ([Event]) -> ()) {
+        var parameters: Parameters = [
             "token": kAnonymousToken,
             "sort_by": "best",
             "location.within": "100mi",
@@ -28,6 +28,10 @@ public class EventbriteClient {
             "location.longitude": "-122.4194",
             "expand": "venue,ticket_classes",
             ]
+        if categories != nil {
+            let ids = categories!.flatMap{ $0.id }
+            parameters["categories"] = ids.joined(separator:",")
+        }
         Alamofire.request(kBaseURL + "/events/search/", method: .get, parameters: parameters)
             .validate(contentType: kValidMIMETypes)
             .validate(statusCode: 200 ..< 300)

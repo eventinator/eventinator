@@ -13,7 +13,14 @@ public class LineupClient {
     static let shared = LineupClient()
     
     func events(failure: ((Error) -> ())? = nil, success: @escaping ([Event]) -> ()) {
-        EventbriteClient.shared.events(failure: failure, success: success)
+        Category.fetchPersistedCategories(failure: { error in
+            print("Unable to fetch categories \(error)")
+            EventbriteClient.shared.events(failure: failure, success: success)
+        }) { categories in
+            print("Using categories \(categories)")
+            EventbriteClient.shared.events(categories: categories, failure: failure, success: success)
+        }
+        
     }
     
     // TODO(MIKE)

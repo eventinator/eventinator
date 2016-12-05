@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         EventbriteClient.shared.categories() { categories in
             self.categories = categories
         }
-        userCategories = getUserCategories()
+        fetchUserSavedCategories()
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -75,9 +75,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         let cell = categoriesCollectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
         let category = categories[indexPath.item]
         cell.category = category
-        if userCategories.contains(where: { $0.id == category.id }) {
-            cell.isUserCategory = true
-        }
+        cell.isUserCategory = userCategories.contains(where: { $0.id == category.id })
+        cell.delegate = self
         
         return cell
     }
@@ -97,45 +96,14 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         return sectionInsets.left
     }
     
-    func markEventAsSavedForUser(category: Category) {
-        Category.persistCategory(category: category)
-    }
-    
     func fetchUserSavedCategories() {
         Category.fetchPersistedCategories(failure: { (error: Error) in
             print(error)
         }, success: { (fetchedCategories: [Category]) in
-            for category in fetchedCategories {
-                print(category)
-            }
+            print(fetchedCategories)
+            self.userCategories = fetchedCategories
         })
     }
-    
-    private func getUserCategories() -> [Category] {
-        var userCategories = [Category]()
-        Category.fetchPersistedCategories(failure: { (error: Error) in
-            print(error)
-        }, success: { (fetchedCategories: [Category]) in
-            for category in fetchedCategories {
-                print(category)
-                userCategories.append(category)
-            }
-        })
-        
-        return userCategories
-    }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
 
@@ -161,4 +129,21 @@ extension ProfileViewController: CLLocationManagerDelegate {
             })
         }
     }
+}
+
+extension ProfileViewController: CategoryCellDelegate {
+    func categoryCell(didSelect categoryCell: CategoryCell, category: Category) {
+        persistCategory(category, categoryCell.isUserCategory)
+    }
+    
+    func persistCategory(_ category: Category, _ add: Bool) {
+        if add {
+            Category.persist(category)
+            userCategories.append(category)
+        } else {
+            userCategories = userCategories.filter { $0.id != category.id }
+            Category.remove(category)
+        }
+    }
+
 }

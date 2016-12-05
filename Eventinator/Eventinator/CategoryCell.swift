@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol CategoryCellDelegate {
+
+    func categoryCell(didSelect categoryCell: CategoryCell, category: Category)
+}
+
 class CategoryCell: UICollectionViewCell {
     
     @IBOutlet weak var categoryNameLabel: UILabel!
@@ -35,6 +40,8 @@ class CategoryCell: UICollectionViewCell {
         }
     }
     
+    var delegate: CategoryCellDelegate?
+    
     required init?(coder aDecoder: NSCoder) {
         isUserCategory = false
         super.init(coder: aDecoder)
@@ -45,6 +52,7 @@ class CategoryCell: UICollectionViewCell {
     
     func onTap(sender: UITapGestureRecognizer) {
         isUserCategory = !isUserCategory
+        delegate?.categoryCell(didSelect: self, category: category)
     }
     
     
