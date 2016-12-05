@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -396,23 +397,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="151" height="78"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNZ-6m-ijJ">
-                                                    <rect key="frame" x="44" y="27" width="64" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Music Live Music Live Music" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNZ-6m-ijJ">
+                                                    <rect key="frame" x="24" y="19.5" width="103.5" height="31.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="ic_add" translatesAutoresizingMaskIntoConstraints="NO" id="dDJ-2w-Hl4">
-                                                    <rect key="frame" x="64" y="45" width="24" height="24"/>
+                                                    <rect key="frame" x="64" y="56" width="24" height="14"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="dDJ-2w-Hl4" firstAttribute="centerY" secondItem="2pK-QL-Fah" secondAttribute="centerY" constant="18" id="8jS-6i-1zR"/>
-                                            <constraint firstItem="dDJ-2w-Hl4" firstAttribute="centerX" secondItem="2pK-QL-Fah" secondAttribute="centerX" id="Hv9-5g-XB5"/>
+                                            <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="dDJ-2w-Hl4" secondAttribute="bottom" id="FcK-QQ-8ie"/>
+                                            <constraint firstItem="dDJ-2w-Hl4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oNZ-6m-ijJ" secondAttribute="bottom" constant="5" id="Hfp-n5-5fp"/>
+                                            <constraint firstItem="oNZ-6m-ijJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2pK-QL-Fah" secondAttribute="leadingMargin" constant="5" id="LmG-xt-6pk"/>
                                             <constraint firstItem="oNZ-6m-ijJ" firstAttribute="centerX" secondItem="2pK-QL-Fah" secondAttribute="centerX" id="QeY-NZ-k0H"/>
                                             <constraint firstItem="oNZ-6m-ijJ" firstAttribute="centerY" secondItem="2pK-QL-Fah" secondAttribute="centerY" constant="-4" id="boE-WW-NZJ"/>
+                                            <constraint firstItem="dDJ-2w-Hl4" firstAttribute="centerX" secondItem="2pK-QL-Fah" secondAttribute="centerX" id="idK-xw-Qwx"/>
+                                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="oNZ-6m-ijJ" secondAttribute="trailing" constant="5" id="jcx-uF-Ltr"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="addImageView" destination="dDJ-2w-Hl4" id="A6j-TV-nZ6"/>

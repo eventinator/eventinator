@@ -29,7 +29,9 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         
         categoriesCollectionView.delegate = self
         categoriesCollectionView.dataSource = self
-        categories = getCategories()
+        EventbriteClient.shared.categories() { categories in
+            self.categories = categories
+        }
         userCategories = getUserCategories()
         
         locationManager = CLLocationManager()
@@ -107,17 +109,6 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
                 print(category)
             }
         })
-    }
-    
-    private func getCategories() -> [Category] {
-        return [Category(id: "music", name: "Live Music"),
-                Category(id: "fairs", name: "Fairs & Festivals"),
-                Category(id: "sports", name: "Sports & Fitness"),
-                Category(id: "eating", name: "Eating & Drinking"),
-                Category(id: "shopping", name: "Shopping & Fashion"),
-                Category(id: "charity", name: "Charity & Volunteering"),
-                Category(id: "movies", name: "Movies"),
-                Category(id: "fun", name: "Fun & Games")]
     }
     
     private func getUserCategories() -> [Category] {

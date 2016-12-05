@@ -44,6 +44,30 @@ public class EventbriteClient {
                 }
         }
     }
+    
+    func categories(failure: ((Error) -> ())? = nil, success: @escaping ([Category]) -> ()) {
+        let categories = [Category(id: "103", name: "Music"),
+                          Category(id: "101", name: "Business & Professional"),
+                          Category(id: "110", name: "Food & Drink"),
+                          Category(id: "113", name: "Community & Culture"),
+                          Category(id: "105", name: "Performing & Visual Arts"),
+                          Category(id: "104", name: "Film, Media & Entertainment"),
+                          Category(id: "108", name: "Sports & Fitness"),
+                          Category(id: "107", name: "Health & Wellness"),
+                          Category(id: "102", name: "Science & Technology"),
+                          Category(id: "109", name: "Travel & Outdoor"),
+                          Category(id: "111", name: "Charity & Causes"),
+                          Category(id: "114", name: "Religion & Spirituality"),
+                          Category(id: "115", name: "Family & Education"),
+                          Category(id: "116", name: "Seasonal & Holiday"),
+                          Category(id: "112", name: "Government & Politics"),
+                          Category(id: "106", name: "Fashion & Beauty"),
+                          Category(id: "117", name: "Home & Lifestyle"),
+                          Category(id: "118", name: "Auto, Boat & Air"),
+                          Category(id: "119", name: "Hobbies & Special Interest"),
+                          Category(id: "199", name: "Other")]
+        success(categories)
+    }
 }
 
 fileprivate let dateFormatter = { () -> DateFormatter in
