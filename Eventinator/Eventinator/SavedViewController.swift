@@ -26,8 +26,7 @@ class SavedViewController: UIViewController {
     var events = [Event]()
     
     let kCloseCellHeight: CGFloat = 179
-    let kOpenCellHeight: CGFloat = 488
-    let kRowsCount = 3
+    let kOpenCellHeight: CGFloat = 900
     var cellHeights = [CGFloat]()
     
     override func viewDidLoad() {
@@ -55,7 +54,7 @@ class SavedViewController: UIViewController {
             print(error)
         }) { events in
             // if the user hasn't saved any events then just show the discover tab
-            if events.count >= 0 {
+            if events.count == 0 {
                 print("No saved events found for user. Defaulting to discover events")
                 LineupClient.shared.events(failure: { error in
                     print(error)

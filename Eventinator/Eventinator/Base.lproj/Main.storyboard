@@ -32,7 +32,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="505"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XW6-ZD-ODJ" id="ee7-ii-AFe">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="504.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="7gh-6z-SU7" customClass="RotatedView" customModule="FoldingCell">
@@ -114,7 +114,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G00-rp-vOA">
-                                                    <rect key="frame" x="8" y="180" width="359" height="479"/>
+                                                    <rect key="frame" x="8" y="180" width="359" height="888"/>
                                                     <subviews>
                                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="m49-aU-DoL">
                                                             <rect key="frame" x="0.0" y="0.0" width="359" height="200"/>
@@ -131,7 +131,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.94117647058823528" green="0.34901960784313724" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="479" id="3QN-44-DCH"/>
+                                                        <constraint firstAttribute="height" constant="888" id="3QN-44-DCH"/>
                                                         <constraint firstAttribute="trailing" secondItem="m49-aU-DoL" secondAttribute="trailing" id="6EG-62-Pwu"/>
                                                         <constraint firstItem="aV4-PQ-OhZ" firstAttribute="leading" secondItem="G00-rp-vOA" secondAttribute="leading" constant="4" id="8AK-57-htf"/>
                                                         <constraint firstItem="aV4-PQ-OhZ" firstAttribute="top" secondItem="m49-aU-DoL" secondAttribute="bottom" constant="4" id="F8P-NE-bXy"/>

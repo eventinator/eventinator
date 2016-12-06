@@ -47,6 +47,20 @@ struct Event {
         source["source"] = event.source.source
         pfEvent["source"] = source
         
+        let location = PFObject(className: "Location")
+        location["locationAddress"] = event.location?.address
+        location["locationLat"] = event.location?.lat
+        location["locationLng"] = event.location?.lng
+        location["locationName"] = event.location?.name
+        pfEvent["location"] = location
+        
+        if event.tickets.count > 0 {
+            let ticket = PFObject(className: "Ticket")
+            ticket["ticketPrice"] = event.tickets[0]?.price
+            ticket["ticketName"] = event.tickets[0]?.name
+            pfEvent["ticket"] = ticket
+        }
+        
         pfEvent.saveInBackground(block: { (success: Bool, error: Error?) in
             if let error = error {
                 NSLog("ERROR Persiting Event Save: \(error.localizedDescription)")
@@ -66,6 +80,8 @@ struct Event {
         
         let query = PFQuery(className:"Event")
         query.includeKey("source")
+        query.includeKey("location")
+        query.includeKey("ticket")
         query.whereKey("username", equalTo: username!)
         query.addDescendingOrder("createdAt")
         
@@ -97,7 +113,25 @@ struct Event {
                         let categoryId = object.object(forKey: "categoryId") as? String ?? ""
                         let guestCount = object.object(forKey: "guestCount") as? UInt ?? 0
                         
-                        let fetchedEvent = Event(id: id, title: title, theDescription: description, start: start, end: end, locationId: locationId, url: url, imageUrl: imageUrl, categoryId: categoryId, guestCount: guestCount, source: querySource, location: nil, tickets: [Ticket]()
+                        let location = object.object(forKey: "location") as? PFObject
+                        let locationAddress = location?.object(forKey: "locationAddress") as? String ?? ""
+                        let locationLat = location?.object(forKey: "locationLat") as? Double ?? 37.7833
+                        let locationLng = location?.object(forKey: "locationLng") as? Double ?? -122.4167
+                        let locationName = location?.object(forKey: "locationName") as? String ?? ""
+                        
+                        let queryLocation = Location(id: "0", lat: locationLat, lng: locationLng, name: locationName, address: locationAddress)
+                        
+                        let ticket = object.object(forKey: "ticket") as? PFObject
+                        let ticketPrice = ticket?.object(forKey: "ticketPrice") as? String ?? "FREE"
+                        let ticketName = ticket?.object(forKey: "ticketName") as? String ?? ""
+                        
+                        var tickets = [Ticket]()
+                        if ticket != nil {
+                            let queryTicket = Ticket(id: "0", eventId: "0", price: ticketPrice, name: ticketName, tier: 1)
+                            tickets.append(queryTicket)
+                        }
+                        
+                        let fetchedEvent = Event(id: id, title: title, theDescription: description, start: start, end: end, locationId: locationId, url: url, imageUrl: imageUrl, categoryId: categoryId, guestCount: guestCount, source: querySource, location: queryLocation, tickets: tickets
                         )
                         
                         events.append(fetchedEvent)

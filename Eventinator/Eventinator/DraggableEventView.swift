@@ -134,7 +134,7 @@ protocol DraggableEventViewDelegate {
                         
                         let scaleA = likeImageView.transform.a
                         likeImageView.transform = CGAffineTransform(scaleX: CGFloat((SCALE_FACTOR / DEGREE_TILT).adding((Float)(scaleA))), y: CGFloat((SCALE_FACTOR / DEGREE_TILT).adding((Float)(scaleA))))
-                        print("scaleA: \(scaleA)")
+//                        print("scaleA: \(scaleA)")
                     }
                 } else {
                     if currentDegrees < 0 {
@@ -143,7 +143,7 @@ protocol DraggableEventViewDelegate {
 
                         let scaleA = passImageView.transform.a
                         passImageView.transform = CGAffineTransform(scaleX: CGFloat((Float)(scaleA).subtracting((SCALE_FACTOR / DEGREE_TILT))), y: CGFloat((Float)(scaleA).subtracting((SCALE_FACTOR / DEGREE_TILT))))
-                        print("scaleA: \(scaleA)")
+//                        print("scaleA: \(scaleA)")
                     }
                 }
             } else {
@@ -154,7 +154,7 @@ protocol DraggableEventViewDelegate {
 
                         let scaleA = likeImageView.transform.a
                         likeImageView.transform = CGAffineTransform(scaleX: CGFloat((Float)(scaleA).subtracting((SCALE_FACTOR / DEGREE_TILT))), y: CGFloat((Float)(scaleA).subtracting((SCALE_FACTOR / DEGREE_TILT))))
-                        print("scaleA: \(scaleA)")
+//                        print("scaleA: \(scaleA)")
                     }
                 } else {
                     if currentDegrees > (DEGREE_TILT * -1) {
@@ -163,7 +163,7 @@ protocol DraggableEventViewDelegate {
 
                         let scaleA = passImageView.transform.a
                         passImageView.transform = CGAffineTransform(scaleX: CGFloat((SCALE_FACTOR / DEGREE_TILT).adding((Float)(scaleA))), y: CGFloat((SCALE_FACTOR / DEGREE_TILT).adding((Float)(scaleA))))
-                        print("scaleA: \(scaleA)")
+//                        print("scaleA: \(scaleA)")
                     }
                 }
             }
