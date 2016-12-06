@@ -46,6 +46,8 @@ class CategoryCell: UICollectionViewCell {
         isUserCategory = false
         super.init(coder: aDecoder)
         
+        layer.cornerRadius = 3
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
         addGestureRecognizer(tapGesture)
     }
