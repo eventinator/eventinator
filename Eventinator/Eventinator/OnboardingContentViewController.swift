@@ -21,5 +21,6 @@ class OnboardingContentViewController: UIViewController {
 
         pageLabel.text = pageLabelText
         pageImageView.image = pageImage
+        pageImageView.layer.cornerRadius = 3
     }
 }

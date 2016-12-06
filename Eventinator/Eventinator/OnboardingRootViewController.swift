@@ -19,9 +19,9 @@ class OnboardingRootViewController: UIViewController {
         super.viewDidLoad()
         
         pages = [
-            createPage("Discover exciting events happening around you", UIImage.init(named: "ic_discover")!),
-            createPage("Swipe right to save an event and swipe left to pass", UIImage.init(named: "ic_profile")!),
-            createPage("Saved events show up on you calendar", UIImage.init(named: "ic_star")!)
+            createPage("Discover exciting events happening around you", UIImage.init(named: "onboarding-card")!),
+            createPage("Swipe right to save an event and swipe left to pass", UIImage.init(named: "onboarding-swipe")!),
+            createPage("Saved events show up on your calendar", UIImage.init(named: "onboarding-saved")!)
         ]
         let pageViewController = storyboard?.instantiateViewController(withIdentifier: "OnboardingPageViewController") as! OnboardingPageViewController
         pageViewController.dataSource = self

@@ -686,22 +686,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover exciting events happening around you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6T-3u-ZSc">
-                                <rect key="frame" x="38" y="100" width="299" height="48"/>
+                                <rect key="frame" x="38" y="60" width="299" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="men-8z-pSU">
-                                <rect key="frame" x="67" y="188" width="240" height="280"/>
+                                <rect key="frame" x="47" y="148" width="280" height="280"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Bmp-60-f3X"/>
+                                    <constraint firstAttribute="width" constant="280" id="XYD-qq-alk"/>
                                     <constraint firstAttribute="height" constant="280" id="bkf-gs-h2r"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="b6T-3u-ZSc" firstAttribute="top" secondItem="Cxh-Zc-SBv" secondAttribute="bottom" constant="80" id="8rD-EU-Vnw"/>
+                            <constraint firstItem="b6T-3u-ZSc" firstAttribute="top" secondItem="Cxh-Zc-SBv" secondAttribute="bottom" constant="40" id="8rD-EU-Vnw"/>
                             <constraint firstItem="b6T-3u-ZSc" firstAttribute="leading" secondItem="vHA-H2-uGu" secondAttribute="leading" constant="38" id="BMG-7l-lgF"/>
                             <constraint firstItem="b6T-3u-ZSc" firstAttribute="centerX" secondItem="vHA-H2-uGu" secondAttribute="centerX" id="Ecc-jb-34v"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="b6T-3u-ZSc" secondAttribute="trailing" constant="38" id="MgG-Bl-5gW"/>
