@@ -12,4 +12,6 @@ target 'Lineup' do
   pod 'AFNetworking'
   pod 'FoldingCell'
   pod 'FSCalendar'
+  pod "JHSpinner"
+
 end

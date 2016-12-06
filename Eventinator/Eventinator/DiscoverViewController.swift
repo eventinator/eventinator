@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JHSpinner
 
 class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
     
@@ -28,6 +29,9 @@ class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
         bottomEventView.isHidden = true
         bottomEventView.parentView = bottomEventView
         
+        let spinner = JHSpinnerView.showOnView(view, spinnerColor:Colors.hexStringToUIColor(hex: "F0592A"), overlay: .roundedSquare, overlayColor:UIColor.black.withAlphaComponent(0.6))
+        view.addSubview(spinner)
+        
         LineupClient.shared.events(failure: { error in
             print(error)
         }) { events in
@@ -36,6 +40,7 @@ class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
             self.topEventView.isHidden = false
             self.bottomEventView.event = self.events[1]
             self.bottomEventView.isHidden = false
+            spinner.dismiss()
         }
     }
     

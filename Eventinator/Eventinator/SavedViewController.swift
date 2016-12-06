@@ -9,6 +9,7 @@
 import UIKit
 import FoldingCell
 import FSCalendar
+import JHSpinner
 
 class SavedViewController: UIViewController {
     
@@ -47,6 +48,9 @@ class SavedViewController: UIViewController {
         
         setNavigationBarLogo()
         
+        let spinner = JHSpinnerView.showOnView(view, spinnerColor:Colors.hexStringToUIColor(hex: "F0592A"), overlay: .roundedSquare, overlayColor:UIColor.black.withAlphaComponent(0.6))
+        view.addSubview(spinner)
+        
         LineupClient.shared.eventsSavedForUser(failure: { error in
             print(error)
         }) { events in
@@ -59,13 +63,16 @@ class SavedViewController: UIViewController {
                     self.events = events
                     self.eventsTableView.reloadData()
                     self.createCellHeightsArray()
+                    spinner.dismiss()
                 }
             } else {
                 print("Found and using saved events for user")
                 self.events = events
                 self.eventsTableView.reloadData()
                 self.createCellHeightsArray()
+                spinner.dismiss()
             }
+            
         }
     }
     
