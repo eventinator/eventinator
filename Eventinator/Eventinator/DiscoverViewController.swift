@@ -37,10 +37,10 @@ class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
         }) { events in
             self.events = events
             self.topEventView.event = self.events[0]
-            self.topEventView.isHidden = false
             self.bottomEventView.event = self.events[1]
-            self.bottomEventView.isHidden = false
             spinner.dismiss()
+            self.topEventView.isHidden = false
+            self.bottomEventView.isHidden = false
         }
     }
     
