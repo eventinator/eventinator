@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="505" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AIK-bz-Lhy">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="505" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AIK-bz-Lhy">
                                 <rect key="frame" x="0.0" y="372" width="375" height="295"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="separatorColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -32,14 +32,14 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="505"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XW6-ZD-ODJ" id="ee7-ii-AFe">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="504.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="505"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="7gh-6z-SU7" customClass="RotatedView" customModule="FoldingCell">
                                                     <rect key="frame" x="8" y="7" width="359" height="165"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="2016 Dia de los Muertos Celebration: Parade" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAc-16-WkV">
-                                                            <rect key="frame" x="8" y="4" width="258.5" height="33.5"/>
+                                                            <rect key="frame" x="8" y="4" width="170" height="33.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -57,9 +57,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TjQ-Jc-7AZ">
-                                                            <rect key="frame" x="279" y="0.0" width="80" height="140"/>
+                                                            <rect key="frame" x="259" y="0.0" width="100" height="140"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="80" id="g7S-gA-uYU"/>
+                                                                <constraint firstAttribute="width" constant="100" id="g7S-gA-uYU"/>
                                                                 <constraint firstAttribute="height" constant="140" id="sKe-FD-zmS"/>
                                                             </constraints>
                                                         </imageView>
@@ -123,24 +123,25 @@
                                                             </constraints>
                                                         </mapView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV4-PQ-OhZ">
-                                                            <rect key="frame" x="4" y="204" width="351" height="14"/>
+                                                            <rect key="frame" x="8" y="208" width="343" height="14"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.94117647058823528" green="0.34901960784313724" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="888" id="3QN-44-DCH"/>
                                                         <constraint firstAttribute="trailing" secondItem="m49-aU-DoL" secondAttribute="trailing" id="6EG-62-Pwu"/>
-                                                        <constraint firstItem="aV4-PQ-OhZ" firstAttribute="leading" secondItem="G00-rp-vOA" secondAttribute="leading" constant="4" id="8AK-57-htf"/>
-                                                        <constraint firstItem="aV4-PQ-OhZ" firstAttribute="top" secondItem="m49-aU-DoL" secondAttribute="bottom" constant="4" id="F8P-NE-bXy"/>
+                                                        <constraint firstItem="aV4-PQ-OhZ" firstAttribute="leading" secondItem="G00-rp-vOA" secondAttribute="leading" constant="8" id="8AK-57-htf"/>
+                                                        <constraint firstItem="aV4-PQ-OhZ" firstAttribute="top" secondItem="m49-aU-DoL" secondAttribute="bottom" constant="8" id="F8P-NE-bXy"/>
                                                         <constraint firstItem="m49-aU-DoL" firstAttribute="leading" secondItem="G00-rp-vOA" secondAttribute="leading" id="Raq-2W-aSX"/>
                                                         <constraint firstItem="m49-aU-DoL" firstAttribute="top" secondItem="G00-rp-vOA" secondAttribute="top" id="X0O-y3-ang"/>
-                                                        <constraint firstAttribute="trailing" secondItem="aV4-PQ-OhZ" secondAttribute="trailing" constant="4" id="tms-Np-U06"/>
+                                                        <constraint firstAttribute="trailing" secondItem="aV4-PQ-OhZ" secondAttribute="trailing" constant="8" id="tms-Np-U06"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="G00-rp-vOA" secondAttribute="trailing" constant="8" id="0kL-Bk-fR3"/>
                                                 <constraint firstItem="7gh-6z-SU7" firstAttribute="leading" secondItem="ee7-ii-AFe" secondAttribute="leading" constant="8" id="5bY-j4-C3P"/>
@@ -156,17 +157,19 @@
                                                 <integer key="value" value="4"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="backViewColor">
-                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="value" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="cellContainerView" destination="G00-rp-vOA" id="WDh-ew-K1L"/>
+                                            <outlet property="cellForegroundView" destination="7gh-6z-SU7" id="80o-KO-PSk"/>
                                             <outlet property="containerView" destination="G00-rp-vOA" id="pgS-Xn-Bh1"/>
                                             <outlet property="containerViewTop" destination="uIj-PD-XbH" id="xWG-DW-QVQ"/>
                                             <outlet property="costLabel" destination="GWd-Cl-PZ6" id="fL7-Nb-7wM"/>
                                             <outlet property="descriptionLabel" destination="aV4-PQ-OhZ" id="uvk-p9-VP4"/>
                                             <outlet property="endDateLabel" destination="JhM-Fk-JKm" id="xi1-8A-htR"/>
                                             <outlet property="eventImageView" destination="TjQ-Jc-7AZ" id="9Q0-SN-o1P"/>
-                                            <outlet property="foregroundView" destination="7gh-6z-SU7" id="aos-NY-EoT"/>
+                                            <outlet property="foregroundView" destination="7gh-6z-SU7" id="qyC-US-HlO"/>
                                             <outlet property="foregroundViewTop" destination="vzx-JD-lB9" id="9yr-w8-TTS"/>
                                             <outlet property="locationLabel" destination="amp-A7-avZ" id="83S-oP-Xaa"/>
                                             <outlet property="mapView" destination="m49-aU-DoL" id="brU-el-syg"/>

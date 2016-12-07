@@ -12,9 +12,8 @@ import FoldingCell
 import MapKit
 
 class SavedEventCell: FoldingCell {
-
+    
     @IBOutlet weak var mapView: MKMapView!
-//    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var costLabel: UILabel!
@@ -24,7 +23,9 @@ class SavedEventCell: FoldingCell {
     @IBOutlet weak var endDateLabel: UILabel!
     
     @IBOutlet weak var descriptionLabel: UILabel!
-
+    
+    @IBOutlet weak var cellForegroundView: RotatedView!
+    @IBOutlet weak var cellContainerView: UIView!
     
     let formatter = DateFormatter()
     
@@ -61,32 +62,28 @@ class SavedEventCell: FoldingCell {
         }
     }
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
-//        containerView.layer.cornerRadius = 5
         eventImageView.layer.cornerRadius = 5
-        mapView.layer.cornerRadius = 5;
+        mapView.layer.cornerRadius = 5
+        cellForegroundView.layer.cornerRadius = 5
+        cellContainerView.layer.cornerRadius = 5
     }
-
+    
     private func addAnnotationAtCoordinate(coordinate: CLLocationCoordinate2D, withTitle title: String?) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
         annotation.title = title
         mapView.addAnnotation(annotation)
     }
-    
-    
+        
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     override func animationDuration(_ itemIndex:NSInteger, type:AnimationType) -> TimeInterval {
         let durations = [0.26, 0.2, 0.2, 0.2, 0.2]
-//        let durations = [0.26, 0.2, 0.2]
+        //        let durations = [0.26, 0.2, 0.2]
         return durations[itemIndex]
     }
-
 }
