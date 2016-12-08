@@ -83,7 +83,7 @@ struct Event {
         query.includeKey("location")
         query.includeKey("ticket")
         query.whereKey("username", equalTo: username!)
-        query.addDescendingOrder("createdAt")
+        query.addAscendingOrder("start")
         
         query.findObjectsInBackground { (result: [PFObject]?, error: Error?) in
             if let error = error {

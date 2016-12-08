@@ -21,14 +21,17 @@ class SavedViewController: UIViewController, LoadableController {
         formatter.dateFormat = "yyyy/MM/dd"
         return formatter
     }()
-    let gregorian: NSCalendar! = NSCalendar(calendarIdentifier:NSCalendar.Identifier.gregorian)
-    
+    let headerFormatter: DateFormatter = {
+        let headerFormatter = DateFormatter()
+        headerFormatter.dateFormat = "EEEE, MMM d"
+        return headerFormatter
+    }()
     var eventsByDate = [String:[Event]]()
     var events = [Event]()
     
     let kCloseCellHeight: CGFloat = 179
     let kOpenCellHeight: CGFloat = 900
-    var cellHeights = [CGFloat]()
+    var openCells = [IndexPath]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,68 +61,82 @@ class SavedViewController: UIViewController, LoadableController {
         let spinner = JHSpinnerView.showOnView(view, spinnerColor:Colors.hexStringToUIColor(hex: "F0592A"), overlay: .roundedSquare, overlayColor:UIColor.black.withAlphaComponent(0.6))
         view.addSubview(spinner)
         
+        let eventsCompletion: (([Event])->()) = { events in
+            CacheManager.shared.invalidateSaved = false
+            self.events = events
+            self.updateDateDictionary()
+            self.eventsTableView.reloadData()
+            spinner.dismiss()
+        }
+        
         LineupClient.shared.eventsSavedForUser(failure: { error in
             print(error)
         }) { events in
-            CacheManager.shared.invalidateSaved = false
+            
             // if the user hasn't saved any events then just show the discover tab
-            if events.count == 0 {
+            if events.isEmpty {
                 print("No saved events found for user. Defaulting to discover events")
                 LineupClient.shared.events(failure: { error in
                     print(error)
-                }) { events in
-                    self.events = events
-                    self.eventsTableView.reloadData()
-                    self.createCellHeightsArray()
-                    spinner.dismiss()
-                }
+                }, success: eventsCompletion)
             } else {
                 print("Found and using saved events for user")
-                self.events = events
-                self.updateDateDictionary()
-                self.eventsTableView.reloadData()
-                self.createCellHeightsArray()
-                spinner.dismiss()
+                eventsCompletion(events)
             }
             
         }
+    }
+    
+    func keyFor(_ date: Date) -> String {
+        return formatter.string(from:date)
     }
 
     func updateDateDictionary() {
         for event in events {
             let date = event.start ?? Date()
-            let key = formatter.string(from:date)
+            let key = keyFor(date)
             var dic = eventsByDate[key] ?? [Event]()
             dic.append(event)
             eventsByDate[key] = dic
         }
     }
 
-    func createCellHeightsArray() {
-        for _ in 0...events.count {
-            cellHeights.append(kCloseCellHeight)
-        }
-    }
-    
     private func setNavigationBarLogo() {
         let logo = UIImage(named: "lineup-logo.png")
         let imageView = UIImageView(image: logo)
         self.navigationItem.titleView = imageView
     }
+    
+    func scrollTo(_ index: DictionaryIndex<String, [Event]>) {
+        
+        for section in 0...eventsByDate.keys.count {
+            if index == eventsByDate.index(eventsByDate.startIndex, offsetBy: section) {
+                eventsTableView.scrollToRow(at: IndexPath(row: 0, section: section), at: .top, animated: true)
+                return
+            }
+        }
+
+    }
 }
 
 extension SavedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return eventsByDate[eventsByDate.index(eventsByDate.startIndex, offsetBy: section)].value.count 
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let key = eventsByDate[eventsByDate.index(eventsByDate.startIndex, offsetBy: section)].key
+        let date = formatter.date(from: key)!
+        return headerFormatter.string(from: date)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return eventsByDate.keys.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = eventsTableView.dequeueReusableCell(withIdentifier: "SavedEventCell", for: indexPath) as! SavedEventCell
-        
-        if indexPath.row < events.count {
-            cell.event = events[indexPath.row]
-        }
-        
+        cell.event = eventsByDate[eventsByDate.index(eventsByDate.startIndex, offsetBy: indexPath.section)].value[indexPath.row]
         return cell
     }
 }
@@ -127,7 +144,7 @@ extension SavedViewController: UITableViewDataSource {
 extension SavedViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return cellHeights[indexPath.row]
+        return openCells.contains(indexPath) ? kOpenCellHeight : kCloseCellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -138,14 +155,14 @@ extension SavedViewController: UITableViewDelegate {
         }
         
         var duration = 0.0
-        if cellHeights[indexPath.row] == kCloseCellHeight { // open cell
-            cellHeights[indexPath.row] = kOpenCellHeight
-            cell.selectedAnimation(true, animated: true, completion: nil)
-            duration = 0.5
-        } else { // close cell
-            cellHeights[indexPath.row] = kCloseCellHeight
+        if openCells.contains(indexPath) { // close cell
+            openCells.remove(at: openCells.index(of: indexPath)!)
             cell.selectedAnimation(false, animated: true, completion: nil)
             duration = 1.1
+        } else { // open cell
+            openCells.append(indexPath)
+            cell.selectedAnimation(true, animated: true, completion: nil)
+            duration = 0.5
         }
         
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { () -> Void in
@@ -161,14 +178,7 @@ extension SavedViewController: UITableViewDelegate {
         }
         
         cell.backgroundColor = UIColor.white
-        
-        if cellHeights[indexPath.row] == kCloseCellHeight {
-            cell.selectedAnimation(false, animated: false, completion:nil)
-        } else {
-            cell.selectedAnimation(true, animated: false, completion: nil)
-        }
-        
-        //cell.number = indexPath.row
+        cell.selectedAnimation(openCells.contains(indexPath), animated: false, completion:nil)
     }
 }
 
@@ -179,9 +189,7 @@ extension SavedViewController: FSCalendarDataSource, FSCalendarDelegate {
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        // TODO @eveliotc Display events dots here
-        
-        let events = eventsByDate[formatter.string(from: date)]
+        let events = eventsByDate[keyFor(date)]
         print("\(date): \(events)")
         return events?.count ?? 0
     }
@@ -192,6 +200,14 @@ extension SavedViewController: FSCalendarDataSource, FSCalendarDelegate {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date) {
         print("calendar did select date \(self.formatter.string(from: date))")
+        
+        let key = keyFor(date)
+        guard let index = eventsByDate.index(forKey: key) else {
+            return
+        }
+        
+        calendar.setScope(.week, animated: true)
+        scrollTo(index)
     }
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
