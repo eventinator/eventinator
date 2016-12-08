@@ -19,10 +19,11 @@ class AccountManager {
                 return nil
             }
             let user = PFUser.current()
-            let facebookId = user?.object(forKey: "facebookId") as? String ?? "unknown"
-            let profilePicUrlStr = user?.object(forKey: "profilePictureURL") as? String ?? "https://graph.facebook.com/\(facebookId)/picture?height=400"
+            let facebookId = user?.object(forKey: "facebookId") as? String ?? ""
+            let facebookPicUrl = "https://graph.facebook.com/\(facebookId)/picture?height=400"
+            let profilePicUrlStr = user?.object(forKey: "profilePictureURL") as? String ?? facebookPicUrl
             return User(
-                id: user?.object(forKey: "id") as? String ?? "unknown",
+                id: user?.object(forKey: "id") as? String ?? "",
                 name: user?.object(forKey: "name") as? String ?? "",
                 facebookId: facebookId,
                 profilePictureURL: URL(string: profilePicUrlStr)
