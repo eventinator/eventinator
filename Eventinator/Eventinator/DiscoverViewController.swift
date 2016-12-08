@@ -9,7 +9,7 @@
 import UIKit
 import JHSpinner
 
-class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
+class DiscoverViewController: UIViewController, DraggableEventViewDelegate, LoadableController {
     
     @IBOutlet weak var bottomEventView: DraggableEventView!
     @IBOutlet weak var topEventView: DraggableEventView!
@@ -29,12 +29,21 @@ class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
         bottomEventView.isHidden = true
         bottomEventView.parentView = bottomEventView
         
+        loadIfNeeded()
+    }
+    
+    func loadIfNeeded() {
+        guard CacheManager.shared.invalidateDiscover else {
+            return
+        }
+        
         let spinner = JHSpinnerView.showOnView(view, spinnerColor:Colors.hexStringToUIColor(hex: "F0592A"), overlay: .roundedSquare, overlayColor:UIColor.black.withAlphaComponent(0.6))
         view.addSubview(spinner)
         
         LineupClient.shared.events(failure: { error in
             print(error)
         }) { events in
+            CacheManager.shared.invalidateDiscover = false
             self.events = events
             self.topEventView.event = self.events[0]
             self.bottomEventView.event = self.events[1]
@@ -48,6 +57,7 @@ class DiscoverViewController: UIViewController, DraggableEventViewDelegate {
         if direction == .right {
             let swipedEvent = topEventView.event
             Event.persistEvent(event: swipedEvent!)
+            CacheManager.shared.invalidateSaved = true
         }
         
         events.remove(at: 0)

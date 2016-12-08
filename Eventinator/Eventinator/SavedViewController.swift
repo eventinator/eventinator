@@ -11,7 +11,7 @@ import FoldingCell
 import FSCalendar
 import JHSpinner
 
-class SavedViewController: UIViewController {
+class SavedViewController: UIViewController, LoadableController {
     
     @IBOutlet weak var eventsTableView: UITableView!
     @IBOutlet weak var calendar: FSCalendar!
@@ -47,12 +47,20 @@ class SavedViewController: UIViewController {
         
         setNavigationBarLogo()
         
+        loadIfNeeded()
+    }
+    
+    func loadIfNeeded() {
+        guard CacheManager.shared.invalidateSaved else {
+            return
+        }
         let spinner = JHSpinnerView.showOnView(view, spinnerColor:Colors.hexStringToUIColor(hex: "F0592A"), overlay: .roundedSquare, overlayColor:UIColor.black.withAlphaComponent(0.6))
         view.addSubview(spinner)
         
         LineupClient.shared.eventsSavedForUser(failure: { error in
             print(error)
         }) { events in
+            CacheManager.shared.invalidateSaved = false
             // if the user hasn't saved any events then just show the discover tab
             if events.count == 0 {
                 print("No saved events found for user. Defaulting to discover events")

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4E5713831DEC0D900035B216 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5713821DEC0D900035B216 /* MapKit.framework */; };
 		4FCE98F6D55902D547EF51AD /* Pods_Lineup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9E12DB1AC2EFFD234CC00F /* Pods_Lineup.framework */; };
+		7BAA3B551DF8EB1300179558 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAA3B541DF8EB1300179558 /* CacheManager.swift */; };
 		C9ACBFEE1DE2443F009D042F /* ParseLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBFED1DE2443F009D042F /* ParseLogInViewController.swift */; };
 		C9ACBFF01DE25211009D042F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBFEF1DE25211009D042F /* Colors.swift */; };
 		C9ACBFF21DE25883009D042F /* ParseSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACBFF11DE25883009D042F /* ParseSignUpViewController.swift */; };
@@ -45,6 +46,7 @@
 		4E5713821DEC0D900035B216 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4F9E12DB1AC2EFFD234CC00F /* Pods_Lineup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lineup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5102524B05C2AED03C18D283 /* Pods-Lineup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lineup.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lineup/Pods-Lineup.release.xcconfig"; sourceTree = "<group>"; };
+		7BAA3B541DF8EB1300179558 /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheManager.swift; path = Managers/CacheManager.swift; sourceTree = "<group>"; };
 		C9ACBFED1DE2443F009D042F /* ParseLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLogInViewController.swift; sourceTree = "<group>"; };
 		C9ACBFEF1DE25211009D042F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C9ACBFF11DE25883009D042F /* ParseSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseSignUpViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				C9ACBFF41DE25B8B009D042F /* NavigationManager.swift */,
 				C9ACBFF61DE25FA0009D042F /* AccountManager.swift */,
+				7BAA3B541DF8EB1300179558 /* CacheManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				FCBE09291DDD7F450086FDDF /* OnboardingContentViewController.swift in Sources */,
 				FC4F32861DD31001003A686E /* DiscoverViewController.swift in Sources */,
 				FCBE092B1DDD80600086FDDF /* OnboardingRootViewController.swift in Sources */,
+				7BAA3B551DF8EB1300179558 /* CacheManager.swift in Sources */,
 				C9F774E81DD77EED0080D242 /* LineupClient.swift in Sources */,
 				FC4F328A1DD3101C003A686E /* ProfileViewController.swift in Sources */,
 				FCFF26DD1DD9A26E0021D934 /* MainViewController.swift in Sources */,

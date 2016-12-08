@@ -23,7 +23,7 @@ public class EventbriteClient {
         var parameters: Parameters = [
             "token": kAnonymousToken,
             "sort_by": "best",
-            "location.within": "100mi",
+            "location.within": "12mi",
             "location.latitude": "37.7749",
             "location.longitude": "-122.4194",
             "expand": "venue,ticket_classes",
