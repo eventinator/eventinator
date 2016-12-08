@@ -27,7 +27,6 @@ class SavedViewController: UIViewController, LoadableController {
         return headerFormatter
     }()
     var eventsByDate = [String:[Event]]()
-    var events = [Event]()
     
     let kCloseCellHeight: CGFloat = 179
     let kOpenCellHeight: CGFloat = 900
@@ -63,8 +62,7 @@ class SavedViewController: UIViewController, LoadableController {
         
         let eventsCompletion: (([Event])->()) = { events in
             CacheManager.shared.invalidateSaved = false
-            self.events = events
-            self.updateDateDictionary()
+            self.updateDateDictionary(events)
             self.eventsTableView.reloadData()
             spinner.dismiss()
         }
@@ -91,7 +89,8 @@ class SavedViewController: UIViewController, LoadableController {
         return formatter.string(from:date)
     }
 
-    func updateDateDictionary() {
+    func updateDateDictionary(_ events: [Event]) {
+        eventsByDate = [String:[Event]]()
         for event in events {
             let date = event.start ?? Date()
             let key = keyFor(date)
