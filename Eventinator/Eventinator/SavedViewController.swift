@@ -23,6 +23,7 @@ class SavedViewController: UIViewController, LoadableController {
     }()
     let gregorian: NSCalendar! = NSCalendar(calendarIdentifier:NSCalendar.Identifier.gregorian)
     
+    var eventsByDate = [String:[Event]]()
     var events = [Event]()
     
     let kCloseCellHeight: CGFloat = 179
@@ -75,6 +76,7 @@ class SavedViewController: UIViewController, LoadableController {
             } else {
                 print("Found and using saved events for user")
                 self.events = events
+                self.updateDateDictionary()
                 self.eventsTableView.reloadData()
                 self.createCellHeightsArray()
                 spinner.dismiss()
@@ -82,7 +84,17 @@ class SavedViewController: UIViewController, LoadableController {
             
         }
     }
-    
+
+    func updateDateDictionary() {
+        for event in events {
+            let date = event.start ?? Date()
+            let key = formatter.string(from:date)
+            var dic = eventsByDate[key] ?? [Event]()
+            dic.append(event)
+            eventsByDate[key] = dic
+        }
+    }
+
     func createCellHeightsArray() {
         for _ in 0...events.count {
             cellHeights.append(kCloseCellHeight)
@@ -168,8 +180,10 @@ extension SavedViewController: FSCalendarDataSource, FSCalendarDelegate {
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         // TODO @eveliotc Display events dots here
-        let day: Int! = self.gregorian.component(.day, from: date)
-        return day % 5 == 0 ? day/5 : 0;
+        
+        let events = eventsByDate[formatter.string(from: date)]
+        print("\(date): \(events)")
+        return events?.count ?? 0
     }
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
