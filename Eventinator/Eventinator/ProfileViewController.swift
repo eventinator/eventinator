@@ -133,10 +133,12 @@ extension ProfileViewController: CLLocationManagerDelegate {
 
 extension ProfileViewController: CategoryCellDelegate {
     func categoryCell(didSelect categoryCell: CategoryCell, category: Category) {
+        
         persistCategory(category, categoryCell.isUserCategory)
     }
     
     func persistCategory(_ category: Category, _ add: Bool) {
+        CacheManager.shared.invalidateDiscover = true
         if add {
             Category.persist(category)
             userCategories.append(category)
