@@ -115,8 +115,8 @@ struct Event {
                         
                         let location = object.object(forKey: "location") as? PFObject
                         let locationAddress = location?.object(forKey: "locationAddress") as? String ?? ""
-                        let locationLat = location?.object(forKey: "locationLat") as? Double ?? 37.7833
-                        let locationLng = location?.object(forKey: "locationLng") as? Double ?? -122.4167
+                        let locationLat = location?.object(forKey: "locationLat") as? Double ?? 0
+                        let locationLng = location?.object(forKey: "locationLng") as? Double ?? 0
                         let locationName = location?.object(forKey: "locationName") as? String ?? ""
                         
                         let queryLocation = Location(id: "0", lat: locationLat, lng: locationLng, name: locationName, address: locationAddress)
